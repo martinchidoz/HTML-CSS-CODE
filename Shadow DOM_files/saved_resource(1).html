@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://javascript.info/shadow-dom -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>
+<script>
+customElements.define('show-hello', class extends HTMLElement {
+  connectedCallback() {
+    const shadow = this.attachShadow({mode: 'open'});
+    shadow.innerHTML = `<p>
+      Hello, ${this.getAttribute('name')}
+    </p>`;
+  }
+});
+</script>
+
+<show-hello name="John"></show-hello>
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://en.js.cx/article/css-animations/boat/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <img src="./boat.png" id="boat">
+
+  <script>
+    boat.onclick = function() {
+
+      this.onclick = null; // only the first click should start the animation
+
+      let times = 1;
+
+      function go() {
+        if (times % 2) {
+          boat.classList.remove('back');
+          boat.style.marginLeft = 100 * times + 200 + 'px';
+        } else {
+          boat.classList.add('back');
+          boat.style.marginLeft = 100 * times - 200 + 'px';
+        }
+
+      }
+
+      go();
+
+      boat.addEventListener('transitionend', function() {
+        times++;
+        go();
+      });
+    }
+  </script>
+
+
+
+
+
+</body></html>

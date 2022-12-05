@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://lookatcode.com/showhtml -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>
+<template id="tmpl"></template>
+
+<div id="elem">Click me</div>
+
+<script>
+  elem.onclick = function() {
+    elem.attachShadow({mode: 'open'});
+
+    elem.shadowRoot.append(tmpl.content.cloneNode(true)); // (*)
+
+    elem.shadowRoot.getElementById('message').innerHTML = "Hello from the shadows!";
+  };
+</script>
+</body></html>

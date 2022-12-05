@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://en.js.cx/article/js-animation/back/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <link rel="stylesheet" href="./style(6).css">
+  <script src="./animate.js(1).download"></script>
+</head>
+
+<body>
+
+
+  <div id="path">
+    <div id="brick"></div>
+  </div>
+
+  <script>
+    brick.onclick = function() {
+      animate({
+        duration: 1000,
+        timing: function back(x, timeFraction) {
+          return Math.pow(timeFraction, 2) * ((x + 1) * timeFraction - x)
+        }.bind(null, 1.5),
+        draw: function(progress) {
+          brick.style.left = progress * 500 + 'px';
+        }
+      });
+    };
+  </script>
+
+
+
+
+</body></html>

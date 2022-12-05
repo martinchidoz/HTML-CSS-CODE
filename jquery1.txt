@@ -1,0 +1,83 @@
+//var date = new Date()
+
+//var person1 ={
+// name:"chidozie",
+// state:"imo"
+//}
+//export  {date, person1}
+
+/*$(document).ready(function () {
+  // $(" .navabar").hide()
+  $("#btn").click(function () {
+    $(this).hide();
+  });
+});
+*/
+/*$(document).ready(function(){
+  $(".navbar,.links").background(red)
+})
+  $("#btn").click(function(){
+    $(this).hide()
+  })
+  $(document).ready(()=>
+  {$("li:even").css('backgroung-color','red')
+   $("li:odd").css('background-color','blue')
+})*/
+ /*   $('.navbar').css({"background":"red"});
+  } else {
+    $('.navbar').css({"background":"none"});
+  }
+  if((result % 2 ===0)
+  {$("#svar  p").css("background-color", "red");
+} else { $("svar p").css("background-color", "blue");
+}
+
+  });
+});
+
+$(document).ready(function(){
+  $('ul.navbar-nav>li')
+  .click(function(e){
+    $('ul.navbar-nav > li')
+    .removeClass('active');
+    $(this).addClass('active');
+  });
+}); */
+
+/*$(document).ready(fuction()
+{$("#btn").mouseenter(){
+  alert("you click me")
+})
+
+$('input[type=number').bind('keypress',function(e))
+{}*/
+
+/*$(document).ready(function(){
+$("input[type='text']").change(function(){
+  alert("you press a key")
+ }) */
+ //$("#btn").mouseover(function(){
+ // $("#btn").css("background-color", "red")
+//alert("you mouse")
+ //})
+//})
+
+$(document).ready(function(){
+
+$("#btn").on("click", "mouseenter",function(){
+
+  // $("#test").animate({
+ // minWidth: "20px",
+ //})
+//})
+
+//})
+
+//alert($("#sell").text
+//alert(document.getElementById)("input").value)
+alert("you click")
+}) ;
+
+}) ;
+//())
+//})

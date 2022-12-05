@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+</head>
+
+<body>
+    <!-- start of block level element -->
+  <h1>hello world</h1> 
+<hr>
+  <h2>hello world</h2> 
+  <h3>hello world</h3>
+  <h4>hello world</h4>
+  <h5>hello world</h5>
+  <h6>hello world</h6> 
+  <p>paragraph</p>
+  <p>paragraph2</p>
+
+  <i>hello world</i> <br>
+  <b>hello world</b>
+  <strong>another means of using bold element</strong>
+<ins> set</ins>
+<del>delete</del>
+<sub>hello world</sub>
+<address>20 olowora road</address>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+   Molestias quasi autem doloribus,<Del>iusto ure deseriunt hic quam.</Del> vitae, unde amet enim consequuntur
+    molestiae <mark> this is bad </mark>
+     Quidem, 
+right<blockquote>
+  </blockquote>
+</p>
+
+<br>
+<!--  -->
+<mark>specify the content</mark> 
+
+<marquee behavior="Smooth" direction="right">scroll to right</marquee>
+<marquee behavior="smooth" direction="left">scroll to left</marquee>
+<marquee behavior="smooth" direction="up">scroll up</marquee>
+<marquee behavior="smooth" direction="down">scroll down
+
+</marquee>
+<button>click</button>
+<a href="./aboutus.html="blank target">goto facebook</a>
+<a href="./Login.html">Login</a> &nbsp;
+<a href="" target=""></a>
+<img src="./images/seller.jpg"  alt="">
+<img src="./images/engineer.jpg" alt="engineer" width="400" height="500">
+<img src=""  alt="eba and okro">
+<audio src=""></audio> 
+<video src="  width= "300" height="400"  loop muted id="https://www.youtube.com/embed/UTdBx5kGM0E" autoplay="video" controls="pause">
+  <iframe src="" frameborder="0"></iframe>
+<source src="videos/building-19657.mp4">
+<building-><19654.mp4" type="video/mp4"></building-> </video>
+<hi> <i></i><small> small element</small>
+  </hi>
+
+<!-- end of inline level element -->
+  
+</body>
+
+</html>

@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php -->
+<html lang="en"><!-- InstanceBegin template="/Templates/javascript.dwt.php" codeOutsideHTMLIsLocked="false" --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- InstanceBeginEditable name="doctitle" -->
+    <title>JavaScript ES6 Features - Tutorial Republic</title>
+    <!-- InstanceEndEditable -->
+    	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="fb:admins" content="100001054961582">
+<meta property="fb:app_id" content="1404574483159557">
+<meta property="og:image" content="/lib/images/signature.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://www.tutorialrepublic.com/favicon.png">
+<style>
+html,body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,img{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+html,body{min-height:100%}
+p{margin:0 0 12px}
+ol,ul{margin:0 0 12px}
+a,a:active,a:visited{outline:none;color:#1db79f;text-decoration:none}
+a img{border:none;outline:none}
+p code,table td:last-child code,.content ul li code,code.mark{padding:2px 4px;color:#333;background-color:#f1f1f1;border-radius:4px}
+a code{color:inherit;background:none;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+table td{vertical-align:top}
+body{min-width:1300px;color:#414141;background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",sans-serif;font-size:17px;line-height:1.7}
+input,select,textarea,button,div,span,a{box-sizing:border-box}
+h1,h2,h3,h4{color:#262626;margin:20px 0 10px;line-height:1.5;font-weight:600}
+h1{font-size:34px;margin-top:17px}
+h2{font-size:28px}
+h3{font-size:22px}
+.space{margin-bottom:25px!important}
+.break{margin-bottom:15px!important}
+.text-center{text-align:center!important}
+.scroll{height:195px;overflow-y:scroll}
+.scroll.large{height:245px}
+.scroll.xlarge{height:290px}
+.scroll.xxlarge{height:340px}
+sup{font-size:13px}
+h1 sup{background:#ec0000;border-radius:3px;padding:5px 10px;font-size:15px;color:#fff;position:relative;top:5px}
+.leaderboard{padding-top:14px;position:relative;height:105px;overflow:hidden}
+.intro-image img{display:block;padding:10px 0 25px;max-width:100%}
+.clearfix::after{content:".";display:block;height:0;clear:both;visibility:hidden}
+code,.code,.syntax,.green-box,.sky-box,.gray-box,.pink-box,.red-box,.at-rule,.codebox pre,.console-output,.command{font-size:16px;font-family:Consolas,Monaco,Courier,monospace}
+.console-output{margin:15px 0}
+.command{background:#f2f2f2;padding:16px 18px;margin:15px 0 25px;border-radius:3px}
+hr{border:none;border-bottom:1px solid #e7e9ed;height:1px;margin:30px 0}
+.summary,.topic{border:1px solid #eaeaea;border-width:1px 0;margin:20px 0;padding:10px 0;color:#8e9aa6;line-height:1.5}
+h2.section-title span{display:inline-block;border-bottom:4px solid #c9d7e0;padding:0 50px 12px 0}
+.wrapper{width:1300px;padding:0 15px;margin:0 auto}
+.header{background:#23384e;padding:16px 0}
+input.search{background:#fff;border:0 none;color:#807E7E;float:left;height:38px;line-height:26px;font-size:14px;margin:0 0 0 12px;outline:medium none;padding:6px 14px;width:500px;border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.6);font-family:inherit}
+.search-btn{color:rgba(0,0,0,.6);background:#ebebeb;border:none;outline:none;cursor:pointer;float:left;height:38px;line-height:46px;width:44px;display:block;margin-left:-2px;border-radius:0 2px 2px 0;box-shadow:0 0 1px rgba(0,0,0,0.7)}
+.logo{width:304px}
+.logo img{height:44px;margin:-3px 0;display:block}
+.site-search{float:left;margin-left:100px}
+.menu{background-color:#f5f5f5;box-shadow:0 1px 1px rgba(0,0,0,.15);position:relative;z-index:9}
+.menu a{color:#666;display:inline-block;padding:0 10px;text-decoration:none;font-size:14px;font-weight:600;height:48px;line-height:48px}
+.menu a:first-child{margin-left:-10px}
+.menu a.tool-link{float:right;display:block;border-radius:30px;line-height:28px;position:relative;height:auto;top:9px;padding:0 12px;color:#1ebba3;border:1px double #1ebba3}
+.fl,.logo{float:left}
+.leftcolumn{width:240px;float:left;font-size:16px;color:#4f4f4f}
+.centercolumn{width:850px;float:left}
+.rightcolumn{width:180px;float:left}
+.content{background:#fff;padding:15px 40px 20px;border:1px solid #dedede;border-top:none;border-radius:1px}
+.sidebar{width:160px;float:left;padding-top:28px;margin-left:20px;position:relative}
+.leftcolumn .segment{margin:16px 0 12px;position:relative;font-size:18px;font-weight:600;line-height:normal}
+.leftcolumn a{color:#4f4f4f;font-size:16px;line-height:26px;display:block;border-bottom:1px solid transparent}
+.leftcolumn ul{list-style:none;padding:0;margin:0}
+.segment,.chapters,.chapters a{float:left;clear:both}
+h1 code,h2 code,h3 code{font:inherit}
+.color-box{margin:15px 0;padding-left:20px}
+.note-box,.warning-box,.tip-box{padding:8px 8px 3px 26px}
+.info-tab{float:left;margin-left:-23px}
+.content ul li{margin-top:7px}
+.extra{padding-top:5px}
+.green-box,.sky-box,.gray-box,.red-box,.pink-box{color:#000;margin-top:15px;padding:10px;background-color:#f6f8fa;border:1px solid #d7e2ec}
+.example{background:#f4f5f6;padding:3px;margin:15px 0}
+.codebox{background:#fff;border:1px solid #ddd}
+.codebox-title{height:41px;padding-left:12px;border-bottom:1px solid #ddd;background:#f5f5f5}
+.codebox-title h4{margin:0;font-size:18px;line-height:40px;float:left;font-weight:600}
+a.try-btn,a.download-btn{width:140px;height:40px;color:#333;font-size:15px;line-height:41px;font-weight:600;text-align:center;text-decoration:none;float:right;display:block;border-left:1px solid #ddd;background:rgba(27,31,35,0.08);box-sizing:border-box;font-family:Arial,sans-serif}
+a.try-btn span{font-size:18px;line-height:normal}
+.hide,.code-style,.box-size,.bottom-link,.footer,.code-style,.snippets,.report-error,.badge,.social,.ad-label,.mobile-only,ul.tree-menu li ul{display:none}
+.skyscraper{width:160px;height:600px;overflow:hidden;margin-bottom:20px;background:#ebecf0}
+.bottom-ad{margin-top:46px;padding:24px;position:relative;background:url(/lib/images/smooth-line.png) no-repeat center #f9f9f9}
+.rectangle-left,.rectangle-right{min-width:336px;min-height:280px;overflow:hidden}
+.fr,a.previous-page,a.next-page,.rectangle-right,.topic-nav{float:right}
+a.previous-page,a.next-page{width:32px;height:32px;line-height:30px}
+.shadow{background:#F7F8F9;padding:3px;margin:10px 0}
+.syntax{color:#2f4959;padding:13px 18px;background:#F9F9FA;border:1px solid #ddd;font-size:15px}
+code[class*="language-"],pre[class*="language-"]{color:#000;background:none;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-break:normal;word-wrap:normal;line-height:1.5;tab-size:4;hyphens:none}
+pre[class*="language-"]{position:relative;margin:.5em 0;overflow:visible;padding:0}
+pre[class*="language-"]>code{position:relative;border-left:10px solid #358ccb;box-shadow:-1px 0 0 0 #358ccb,0 0 0 1px #dfdfdf;background-color:#fdfdfd;background-image:linear-gradient(transparent 50%,rgba(69,142,209,0.04) 50%);background-size:3em 3em;background-origin:content-box;background-attachment:local}
+code[class*="language"]{max-height:inherit;height:inherit;padding:0 1em;display:block;overflow:auto}
+:not(pre) > code[class*="language-"]{position:relative;padding:.2em;border-radius:.3em;color:#c92c2c;border:1px solid rgba(0,0,0,0.1);display:inline;white-space:normal}
+pre[class*="language-"].line-numbers{padding-left:0}
+pre[class*="language-"].line-numbers code{padding-left:3.8em}
+pre[class*="language-"].line-numbers .line-numbers-rows{left:0}
+pre[class*="language-"][data-line]{padding-top:0;padding-bottom:0;padding-left:0}
+pre[data-line] code{position:relative;padding-left:4em}
+pre .line-highlight{margin-top:0}
+pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber;white-space:pre-wrap!important}
+pre.line-numbers > code{position:relative;white-space:inherit}
+.line-numbers-rows,.codebox pre.inactive{display:none}
+.codebox pre.syntax-highlighter{margin:0;padding:0;overflow:auto}
+pre.line-numbers .line-numbers-rows{border-right:3px solid #6CE26C}
+.codebox pre.syntax-highlighter > code{box-shadow:none!important;padding-left:3.8em;background-image:linear-gradient(transparent 50%,#F8F8F8 50%);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace!important;font-size:16px;line-height:1.5;overflow-wrap:break-word}
+.codebox pre.syntax-highlighter,.codebox pre.syntax-highlighter code{border:none;width:100%;box-sizing:border-box}
+pre.line-numbers code,pre.line-numbers .line-numbers-rows{padding-top:2px;padding-bottom:2px}
+.preview-box{padding:15px;text-align:center;cursor:pointer;overflow:hidden;background:#FFF;border:1px solid #e6e6e6}
+.preview-box a,.preview-box img{display:block;margin:0 auto}
+.download-box{text-align:center;padding:20px 0;margin:20px 0 10px}
+.output-box{border-color:#d4d4d4;border-style:solid;border-width:1px 0;padding:5px 15px;overflow:hidden;background:#fff;margin:10px 0}
+.demo-box{margin-top:15px}
+.subhead{border-bottom:3px solid #DCE3EB;margin-bottom:15px;padding-bottom:10px}
+table.data,table.description{width:100%;font-size:92%}
+table.data th{color:#000;padding:8px 7px;text-align:left;font-size:15px;background:#F8F8F8}
+table.data td{color:#484848;padding:5px 7px;background:#fff}
+table.data th,table.data td{vertical-align:top;border:1px solid #DCE3EB}
+table.data tr.section th,table.data td.section{font-size:15px;background:#f0f4f7}
+table.description th{width:150px}
+table.no-wrap tr td:first-child{white-space:nowrap}
+.topic-nav{padding-right:5px;color:#d0d0d0}
+.topic-nav a{padding:0 15px;margin:0 0 0 5px;position:relative;display:inline-block}
+.topic-nav a::after{font-size:24px;position:absolute;line-height:22px}
+.topic-nav a:first-child{margin:0 5px 0 0}
+.topic-nav a:first-child::after{content:'\00AB';left:-5px}
+.topic-nav a:last-child::after{content:'\00BB';right:-5px}
+@media screen and (max-width: 1280px) {
+body{min-width:1260px}
+.wrapper{width:1260px}
+.leftcolumn{width:230px}
+.centercolumn{width:820px}
+.preview-box img{max-width:100%;height:auto}
+}
+@media screen and (max-width: 800px) {
+body{min-width:100%;max-width:100%;padding-top:46px}
+.wrapper{width:100%;padding:0}
+.header{height:46px;padding:5px 0;position:fixed;top:0;left:0;right:0;width:100%;z-index:99}
+.logo{width:auto;display:block;padding:6px 0 0 60px;position:absolute;left:0;z-index:100}
+.logo img{height:30px}
+.menu{width:100%;padding-left:12px;padding-right:12px;overflow-x:auto;white-space:nowrap}
+.centercolumn{width:100%;float:none}
+.content{padding:10px;border-width:0 0 1px 0}
+.content img{max-width:100%;height:auto}
+.skyscraper{display:inline-block}
+.shadow,.example,.console-output,.content pre{max-width:100%;overflow-x:auto}
+.codebox-title{position:relative}
+.codebox.multi-style-mode pre{padding-top:7px;margin-top:36px;border-top:1px solid #ddd}
+.bottom-ad{height:auto;background:none;padding:30px 0 0;margin:40px 0 0;text-align:center;position:relative}
+.rectangle-left,.rectangle-right{float:none;display:inline-block;margin:10px auto;background:#EDEEF2}
+.leftcolumn,.footer,.social,.site-search,.code-style,.menu a.tool-link,.backdrop{display:none}
+.summary,.topic{padding:5px 0;margin:10px 0}
+.leftcolumn,.centercolumn,.rightcolumn,.sidebar{float:none}
+.header,.menu,.centercolumn,.footer,.appeal-text{width:100%}
+a.try-btn,a.download-btn{width:130px}
+.native-unit{margin-bottom:30px}
+.rightcolumn,.sidebar{margin: 25px auto 0}
+.overview{padding-right:0}
+.scroll-pane{overflow-x:auto}
+table.data{min-width:480px}
+table.data pre{display:inline;white-space:normal}
+table tr th,table tr td{width:auto!important}
+.preview-box{padding:6px}
+.leaderboard{margin:20px 0}
+h1{font-size:30px}
+h2{font-size:24px}
+h3{font-size:20px}
+.codebox pre.syntax-highlighter{overflow-x:auto}
+.codebox pre.syntax-highlighter > code{min-width:614px;height:auto;overflow-x:hidden}
+}
+@media screen and (min-width: 801px) {
+.site-search,.leftcolumn,.social{display:block!important}
+.backdrop{display:none!important}
+.hide-scroll{overflow-x:hidden!important}
+}
+.menu a.old-version{height:21px;font-size:13px;line-height:17px;border:1px double;border-radius:40px;margin-right:10px}</style>
+    
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    
+	<script src="./JavaScript ES6 Features - Tutorial Republic_files/f.txt"></script><script src="./JavaScript ES6 Features - Tutorial Republic_files/f(1).txt" id="google_shimpl"></script><script async="" src="./JavaScript ES6 Features - Tutorial Republic_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-381VQH4NHT');
+</script><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="stylesheet" href="./JavaScript ES6 Features - Tutorial Republic_files/extended-1.1.css"><link rel="stylesheet" href="./JavaScript ES6 Features - Tutorial Republic_files/style.css"><link rel="preload" href="./JavaScript ES6 Features - Tutorial Republic_files/f(2).txt" as="script"><script type="text/javascript" src="./JavaScript ES6 Features - Tutorial Republic_files/f(2).txt"></script><link rel="preload" href="./JavaScript ES6 Features - Tutorial Republic_files/f(3).txt" as="script"><script type="text/javascript" src="./JavaScript ES6 Features - Tutorial Republic_files/f(3).txt"></script></head>
+<body>
+    <!--Header-->
+    
+<div class="header">
+    <div class="wrapper clearfix">
+        <button type="button" class="open-menu mobile-only"><i class="icon-menu"></i></button>
+        <div class="logo">
+            <a href="https://www.tutorialrepublic.com/"><img src="./JavaScript ES6 Features - Tutorial Republic_files/logo.svg" alt="TutorialRepublic"></a>
+        </div>
+        <div class="site-search">
+            <form action="https://www.google.com/search" method="get" target="_blank" class="clearfix">
+                <input type="hidden" value="www.tutorialrepublic.com" name="sitesearch">
+                <input type="text" name="q" placeholder="Search topics, tutorials, questions and answers..." id="searchInput" class="search">
+                <button type="submit" class="search-btn"><span class="icon-search"></span></button>
+            </form>
+        </div>
+        <div class="social">                
+            <a href="https://www.facebook.com/tutorialrepublic" target="_blank" title="Join us on Facebook"><i class="icon-facebook"></i></a>
+            <a href="https://twitter.com/tutrepublic" target="_blank" title="Follow us on Twitter"><i class="icon-twitter"></i></a>
+            <a href="https://www.tutorialrepublic.com/contact-us.php" target="_blank" title="Send us an Email"><i class="icon-mail"></i></a>
+        </div>
+        <button type="button" class="open-search mobile-only">
+            <i class="icon-search"></i>
+        </button>
+    </div>    
+</div>
+<div class="menu">
+    <div class="wrapper">
+        <a href="https://www.tutorialrepublic.com/" title="Home Page">HOME</a>
+        <a href="https://www.tutorialrepublic.com/html-tutorial/" title="HTML Tutorial">HTML5</a>            
+        <a href="https://www.tutorialrepublic.com/css-tutorial/" title="CSS Tutorial">CSS3</a>
+        <a href="https://www.tutorialrepublic.com/javascript-tutorial/" title="JavaScript Tutorial">JAVASCRIPT</a>
+        <a href="https://www.tutorialrepublic.com/jquery-tutorial/" title="jQuery Tutorial">JQUERY</a>
+        <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" title="Bootstrap 5 Tutorial">BOOTSTRAP5</a>
+		<a href="https://www.tutorialrepublic.com/twitter-bootstrap-4-tutorial/" class="old-version" title="Bootstrap 4.6 Tutorial">v4.6</a>
+        <a href="https://www.tutorialrepublic.com/php-tutorial/" title="PHP Tutorial">PHP7</a> 
+        <a href="https://www.tutorialrepublic.com/sql-tutorial/" title="SQL Tutorial">SQL</a>
+        <a href="https://www.tutorialrepublic.com/references.php" title="Web References">REFERENCES</a>
+        <a href="https://www.tutorialrepublic.com/practice-examples.php" title="Practice Examples and Demos">EXAMPLES</a>
+        <a href="https://www.tutorialrepublic.com/faq.php" title="Frequently Asked Questions and Answers">FAQ</a>
+        <a href="https://www.tutorialrepublic.com/snippets/gallery.php" title="Bootstrap Code Snippets" target="_blank">SNIPPETS</a>
+        <a href="https://www.tutorialrepublic.com/codelab.php" class="tool-link" target="_blank">Online HTML Editor</a>
+    </div>        
+</div>    <!--End:Header-->
+    <div class="wrapper clearfix">
+        <div class="leftcolumn" id="myNav">
+		
+        <div class="segment"><span>JAVASCRIPT</span> BASIC</div>
+<div class="chapters">
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/" class="">JS Introduction</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-get-started.php">JS Getting Started</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-syntax.php">JS Syntax</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-variables.php">JS Variables</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-generating-output.php">JS Generating Output</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-data-types.php">JS Data Types</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-operators.php">JS Operators</a>	
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-events.php">JS Events</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-strings.php">JS Strings</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-numbers.php">JS Numbers</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-if-else-statements.php">JS If…Else</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-switch-case-statements.php">JS Switch…Case</a>	
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-arrays.php">JS Arrays</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-sorting-arrays.php">JS Sorting Arrays</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-loops.php">JS Loops</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-functions.php">JS Functions</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-objects.php">JS Objects</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> &amp; DOM</div>
+<div class="chapters">
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-nodes.php">JS DOM Nodes</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-selectors.php">JS DOM Selectors</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-styling.php">JS DOM Styling</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-get-set-attributes.php">JS DOM Get Set Attributes</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-manipulation.php">JS DOM Manipulation</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-navigation.php">JS DOM Navigation</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> &amp; BOM</div>
+<div class="chapters">
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window.php">JS Window</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-screen.php">JS Screen</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-location.php">JS Location</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-history.php">JS History</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-navigator.php">JS Navigator</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dialog-boxes.php">JS Dialog Boxes</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-timers.php">JS Timers</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> ADVANCED</div>
+<div class="chapters">
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-date-and-time.php">JS Date and Time</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-math-operations.php">JS Math Operations</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-type-conversions.php">JS Type Conversions</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-event-listeners.php">JS Event Listeners</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-event-propagation.php">JS Event Propagation</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-borrowing-methods.php">JS Borrowing Methods</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-hoisting.php">JS Hoisting Behavior</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-closures.php">JS Closures</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-strict-mode.php">JS Strict Mode</a>   
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-json-parsing.php">JS JSON Parsing</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-error-handling.php">JS Error Handling</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-regular-expressions.php">JS Regular Expressions</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-form-validation.php">JS Form Validation</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-cookies.php">JS Cookies</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-ajax.php">JS AJAX Requests</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php" class="selected">JS ES6 Features</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> EXAMPLES</div>
+<div class="chapters">
+    <a href="https://www.tutorialrepublic.com/javascript-examples.php">JS Practice Examples</a>
+	<a href="https://www.tutorialrepublic.com/faq.php#javascript-jquery">JS FAQ's Answers</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> REFERENCE</div>
+<ul class="chapters tree-menu">
+    <li class="tree"><span class="shorthand">JS&nbsp;Properties&nbsp;and&nbsp;Methods</span>
+        <ul class="hide">
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php">JS Array Object</a></li>
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-boolean-object.php">JS Boolean Object</a></li> 
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-date-object.php">JS Date Object</a></li> 
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-math-object.php">JS Math Object</a></li> 
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-number-object.php">JS Number Object</a></li> 
+            <li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-string-object.php">JS String Object</a></li> 			         
+        </ul>
+	</li><li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-reserved-keywords.php">JS Reserved Keywords</a></li>
+	<li><a href="https://www.tutorialrepublic.com/references.php" class="more">More references</a></li>
+</ul>        
+                </div>
+        <div class="centercolumn">
+            <!--Text Content-->
+            <div class="content">
+                <div class="leaderboard">
+
+    <div class="ad-label">Advertisements</div>
+
+    <div class="ad-container">
+        <script async="" src="./JavaScript ES6 Features - Tutorial Republic_files/f(4).txt"></script>
+<!-- Responsive Leaderboard -->
+<ins class="adsbygoogle" style="display: block; width: 728px; max-width: 728px; height: 90px;" data-ad-client="ca-pub-9107540490929984" data-ad-slot="4302666817" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:728px;height:90px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript ES6 Features - Tutorial Republic_files/ads.html" data-google-container-id="a!1" data-google-query-id="CMLsp5bpwfsCFVrg7Qodk0AGvQ" data-load-complete="true"></iframe></div></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>    </div>
+
+    
+</div>                <!-- InstanceBeginEditable name="main_content" -->
+                <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-ajax.php" class="previous-page" title="Go to Previous Page"></a>
+            	<a href="https://www.tutorialrepublic.com/javascript-examples.php" class="next-page" title="Go to Next Page"></a>
+                <h1>JavaScript <span>ES6 Features</span></h1>
+                <p class="summary">In this tutorial you will learn about the new features in latest version of JavaScript.</p>
+				<h2>What is ECMAScript 6 (or ES6)</h2>
+				<p>ECMAScript 2015 (or ES6) is the sixth and major edition of the ECMAScript language specification standard. It defines the standard for the JavaScript implementation.</p>
+				<p class="space">ES6 brought significant changes to the JavaScript language. It introduces several new features such as, block-scoped variables, new loop for iterating over arrays and objects, template literals, and many other enhancements to make JavaScript programming easier and more fun. In this chapter, we will discuss some of the best ES6 features that you can use in your everyday JavaScript coding.</p>
+				<h2 id="let-keyword">The <code>let</code> Keyword</h2>
+				<p>ES6 introduces the new <code>let</code> keyword for declaring variables. Prior to ES6, the only way to declare a variable in JavaScript was the <code>var</code> keyword. Let's see what's the difference between them is.</p>
+				<p>There are two critical differences between the <code>var</code> and <code>let</code>. Variables declared with the <code>var</code> keyword are <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-functions.php#variable-scope">function-scoped</a> and <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-hoisting.php">hoisted</a> at the top within its scope, whereas variables declared with <code>let</code> keyword are block-scoped (<code>{}</code>) and they are not hoisted.</p>
+				<p>Block scoping simply means that a new scope is created between a pair of curly brackets i.e. <code>{}</code>. Therefore, if you declare a variable with the <code>let</code> keyword inside a loop, it does not exist outside of the loop, as demonstrated in the following example:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-let-keyword" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// ES6 syntax</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0,1,2,3,4</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+
+
+<span class="token comment">// ES5 syntax</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0,1,2,3,4</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>				
+                <!--End:Code box-->
+				<p>As you can see in the above example the variable <code>i</code> in the first block is not accessible outside the <code>for</code> loop. This also enables us to reuse the same variable name multiple times as its scope is limited to the block (<code>{}</code>), which results in less variable declaration and more cleaner code.</p>
+				<hr>
+				<h2>The <code>const</code> Keyword</h2>
+				<p>The new <code>const</code> keyword makes it possible to define constants. Constants are read-only, you cannot reassign new values to them. They are also block-scoped like <code>let</code>.</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-const-keyword" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3.14</span>
+
+<span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// error</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>However, you can still change object properties or array elements:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-constants-are-not-truly-immutable" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// Changing object property value</span>
+<span class="token keyword">const</span> <span class="token constant">PERSON</span> <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">"Peter"</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">PERSON</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 28</span>
+<span class="token constant">PERSON</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">PERSON</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 30</span>
+
+<span class="token comment">// Changing array element</span>
+<span class="token keyword">const</span> <span class="token constant">COLORS</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token string">"green"</span><span class="token punctuation">,</span> <span class="token string">"blue"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">COLORS</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// red</span>
+<span class="token constant">COLORS</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"yellow"</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">COLORS</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// yellow</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<hr>
+				<h2>The <code>for...of</code> Loop</h2>
+				<p>The new <code>for...of</code> loop allows us to iterate over arrays or other iterable objects very easily. Also, the code inside the loop is executed for each element of the iterable object. Here's an example:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-for-of-loop" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// Iterating over array</span>
+<span class="token keyword">let</span> letters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">,</span> <span class="token string">"e"</span><span class="token punctuation">,</span> <span class="token string">"f"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> letter <span class="token keyword">of</span> letters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>letter<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// a,b,c,d,e,f</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Iterating over string</span>
+<span class="token keyword">let</span> greet <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> character <span class="token keyword">of</span> greet<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>character<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// H,e,l,l,o, ,W,o,r,l,d,!</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>The <code>for...of</code> loop doesn't work with objects because they are not iterable. If you want to iterate over the properties of an object you can use the <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-loops.php#for-in"><code>for-in</code></a> loop.</p>
+				<hr>
+				<h2 id="template-literals">Template Literals</h2>
+				<p>Template literals provide an easy and clean way create multi-line strings and perform string interpolation. Now we can embed variables or expressions into a string at any spot without any hassle.</p>
+				<p>Template literals are created using back-tick (<code>` `</code>) (grave accent) character instead of the usual double or single quotes. Variables or expressions can be placed inside the string using the <code>${...}</code> syntax. Compare the following examples and see how much useful it is:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-template-literals" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// Simple multi-line string</span>
+<span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token string">`The quick brown fox
+    jumps over the lazy dog.`</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// String with embedded variables and expression</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token template-string"><span class="token string">`The sum of </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>a<span class="token operator">+</span>b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.`</span></span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// The sum of 10 and 20 is 30.</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>While in ES5, to achieve the same we had to write something like this:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=creating-multi-line-strings-in-older-versions" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// Multi-line string</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'The quick brown fox\n\t'</span>
+    <span class="token operator">+</span> <span class="token string">'jumps over the lazy dog.'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Creating string using variables and expression</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token string">'The sum of '</span> <span class="token operator">+</span> a <span class="token operator">+</span> <span class="token string">' and '</span> <span class="token operator">+</span> b <span class="token operator">+</span> <span class="token string">' is '</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// The sum of 10 and 20 is 30.</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<hr>
+				<h2>Default Values for Function Parameters</h2>
+				<p>Now, in ES6 you can specify default values to the <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-functions.php#parameters">function parameters</a>. This means that if no arguments are provided to function when it is called these default parameters values will be used. This is one of the most awaited features in JavaScript. Here's an example:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-function-with-default-parameter-values" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'World'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello World!</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token string">'John'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello John!</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>While in ES5, to achieve the same we had to write something like this:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=setting-default-values-for-function-parameters-in-older-versions" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'World'</span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span> <span class="token string">'Hello '</span> <span class="token operator">+</span>  name <span class="token operator">+</span> <span class="token string">'!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello World!</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token string">'John'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello John!</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<hr>
+				<h2 id="arrow-functions">Arrow Functions</h2>
+				<p>Arrow Functions are another interesting feature in ES6. It provides a more concise syntax for writing <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-functions.php#function-expressions">function expressions</a> by opting out the <code>function</code> and <code>return</code> keywords.</p>
+				<p>Arrow functions are defined using a new syntax, the fat arrow (<code>=&gt;</code>) notation. Let's see how it looks:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-arrow-functions" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// Function Expression</span>
+<span class="token keyword">var</span> <span class="token function-variable function">sum</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+
+<span class="token comment">// Arrow function</span>
+<span class="token keyword">var</span> <span class="token function-variable function">sum</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>As you can see thre is no <code>function</code> and <code>return</code> keyword in arrow function declaration.</p>
+				<p>You can also skip the parentheses i.e. <code>()</code> in case when there is exactly one parameter, but you will always need to use it when you have zero or more than one parameter.</p>
+				<p>Additionally, if there's more than one expression in the function body, you need to wrap it braces (<code>{}</code>). In this case you also need to use the <code>return</code> statement to return a value.</p>
+				<p>There are several variations of how you can write arrow functions. Here are the most commonly used:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-arrow-function-variations" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// Single parameter, single statement</span>
+<span class="token keyword">var</span> <span class="token function-variable function">greet</span> <span class="token operator">=</span> name <span class="token operator">=&gt;</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hi "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">greet</span><span class="token punctuation">(</span><span class="token string">"Peter"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hi Peter!</span>
+
+<span class="token comment">// Multiple arguments, single statement</span>
+<span class="token keyword">var</span> <span class="token function-variable function">multiply</span> <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+
+
+<span class="token comment">// Single parameter, multiple statements</span>
+<span class="token keyword">var</span> <span class="token function-variable function">test</span> <span class="token operator">=</span> age <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>age <span class="token operator">&gt;</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Adult"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Teenager"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Adult</span>
+
+<span class="token comment">// Multiple parameters, multiple statements</span>
+<span class="token keyword">var</span> <span class="token function-variable function">divide</span> <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>y <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> x <span class="token operator">/</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">divide</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+
+<span class="token comment">// No parameter, single statement</span>
+<span class="token keyword">var</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->				
+				<p>There is an important difference between regular functions and arrow functions. Unlike a normal function, an arrow function does not have its own <code>this</code>, it takes <code>this</code> from the outer function where it is defined. In JavaScript, <code>this</code> is the current execution context of a function.</p>
+				<p>To understand this clearly, let's check out the following examples:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=this-keyword-value-inside-a-simple-function" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>nickname<span class="token punctuation">,</span> country<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>nickname <span class="token operator">=</span> nickname<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>country <span class="token operator">=</span> country<span class="token punctuation">;</span>
+    
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getInfo</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Outer function context (Person object)</span>
+        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Inner function context (Global object 'Window')</span>
+            <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>constructor<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Window</span>
+            <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hi, I'm "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>nickname <span class="token operator">+</span> <span class="token string">" from "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>country<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'Rick'</span><span class="token punctuation">,</span> <span class="token string">'Argentina'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> printInfo <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hi, I'm undefined from undefined</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>Rewriting the same example using ES6 template literals and arrow function:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=this-keyword-value-inside-an-arrow-function" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>nickname<span class="token punctuation">,</span> country<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>nickname <span class="token operator">=</span> nickname<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>country <span class="token operator">=</span> country<span class="token punctuation">;</span>
+    
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getInfo</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Outer function context (Person object)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Inner function context (Person object)</span>
+            <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>constructor<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Person</span>
+            <span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Hi, I'm </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickname<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> from </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>country<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'Rick'</span><span class="token punctuation">,</span> <span class="token string">'Argentina'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> printInfo <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hi, I'm Rick from Argentina</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>As you can clearly see, the <code>this</code> keyword in the above example refers to the context of the function enclosing the arrow function which is Person object (<i>line no-9</i>), unlike the previous example where it referred to the global object <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window.php">Window</a> (<i>line no-9</i>).</p>
+				<hr>
+				<h2>Classes</h2>
+				<p>In ECMAScript 5 and earlier, classes were never existed in JavaScript. Classes are introduced in ES6 which looks similar to classes in other object oriented languages, such as Java, PHP, etc., however they do not work exactly the same way. ES6 classes make it easier to create objects, implement inheritance by using the <code>extends</code> keyword, and reuse the code.</p>
+				<p>In ES6 you can declare a class using the new <code>class</code> keyword followed by a class-name. By convention class names are written in TitleCase (i.e. capitalizing the first letter of each word).</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-classes" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">class</span> <span class="token class-name">Rectangle</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Class constructor</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>length<span class="token punctuation">,</span> width<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> length<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> width<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// Class method</span>
+    <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Square class inherits from the Rectangle class</span>
+<span class="token keyword">class</span> <span class="token class-name">Square</span> <span class="token keyword">extends</span> <span class="token class-name">Rectangle</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Child class constructor</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Call parent's constructor</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>length<span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// Child class method</span>
+    <span class="token function">getPerimeter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> rectangle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rectangle</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>rectangle<span class="token punctuation">.</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 50</span>
+
+<span class="token keyword">let</span> square <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Square</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>square<span class="token punctuation">.</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 25</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>square<span class="token punctuation">.</span><span class="token function">getPerimeter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 20</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>square <span class="token keyword">instanceof</span> <span class="token class-name">Square</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>square <span class="token keyword">instanceof</span> <span class="token class-name">Rectangle</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>rectangle <span class="token keyword">instanceof</span> <span class="token class-name">Square</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>In the above example the Square class inherits from Rectangle using the <code>extends</code> keyword. Classes that inherit from other classes are referred to as derived classes or child classes.</p>
+				<p>Also, you must call <code>super()</code> in the child class constructor before accessing the context (<code>this</code>). For instance, if you omit the <code>super()</code> and call the <code>getArea()</code> method on square object it will result in an error, since <code>getArea()</code> method require access to <code>this</code> keyword.</p>
+				<!--Note box-->
+                <div class="color-box">
+                    <div class="shadow">
+                        <div class="info-tab note-icon" title="Important Notes"><i></i></div>
+                        <div class="note-box">
+                            <p><strong>Note:</strong> Unlike function declarations, class declarations are not hoisted. Class declarations reside in the temporal dead zone (TDZ) until the execution reaches the point of class declaration, similar to <code>let</code> and <code>const</code> declarations. Therefore, you need to declare your class before accessing it, otherwise a ReferenceError will occur.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End:Note box-->
+				<hr>
+				<h2>Modules</h2>
+				<p>Prior to ES6, there were no native support for modules in JavaScript. Everything inside a JavaScript application, for example variables across different JavaScript files, shared the same scope.</p>
+				<p>ES6 introduces file based module, in which each module is represented by a separate <code>.js</code> file. Now, you can use the <code>export</code> or <code>import</code> statement in a module to export or import variables, functions, classes or any other entity to/from other modules or files.</p>
+				<p>Let's create a module i.e. a JavaScript file "main.js" and place the following code in it:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="javascript:void(0);" target="_blank" class="try-btn disabled" title="Disabled">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">let</span> greet <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span> 
+
+<span class="token keyword">function</span> <span class="token function">multiplyNumbers</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Exporting variables and functions</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> greet<span class="token punctuation">,</span> <span class="token constant">PI</span><span class="token punctuation">,</span> multiplyNumbers <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>Now create another JavaScript file "app.js" with the following code:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="javascript:void(0);" target="_blank" class="try-btn disabled" title="Disabled">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> greet<span class="token punctuation">,</span> <span class="token constant">PI</span><span class="token punctuation">,</span> multiplyNumbers <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./main.js'</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>greet<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello World!</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3.14</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">multiplyNumbers</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 90</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>Finally create a HTML file "test.html" and with the following code and open this HTML file in your browser using HTTP protocol (or use localhost). Also notice the <code>type="module"</code> on script tag.</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-modules" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-markup"><code class=" language-markup"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>ES6 Module Demo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<hr>
+				<h2 id="rest-operator">The Rest Parameters</h2>
+				<p>ES6 introduces rest parameters that allow us to pass an arbitrary number of parameters to a function in the form of an array. This is particularly helpful in situations when you want to pass parameters to a function but you have no idea how many you will need.</p>
+				<p>A rest parameter is specified by prefixing a named parameter with rest operator (<code>...</code>) i.e. three dots. Rest parameter can only be the last one in the list of parameters, and there can only be one rest parameter. Take a look at the following example, to see how it works:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-rest-parameter" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">sortNames</span><span class="token punctuation">(</span><span class="token operator">...</span>names<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> names<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">sortNames</span><span class="token punctuation">(</span><span class="token string">"Sarah"</span><span class="token punctuation">,</span> <span class="token string">"Harry"</span><span class="token punctuation">,</span> <span class="token string">"Peter"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Harry,Peter,Sarah</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">sortNames</span><span class="token punctuation">(</span><span class="token string">"Tony"</span><span class="token punctuation">,</span> <span class="token string">"Ben"</span><span class="token punctuation">,</span> <span class="token string">"Rick"</span><span class="token punctuation">,</span> <span class="token string">"Jos"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// John,Jos,Rick,Tony</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>When the rest parameter is the only parameter in a function, it gets all the arguments passed to the function, otherwise it gets the rest of the arguments that exceeds the number of named parameters.</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-get-extra-function-arguments-with-rest-parameter" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">myFunction</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> args<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">myFunction</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3,4,5</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">myFunction</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4.5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0,-2,4.5,1,3</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<!--Note box-->
+                <div class="color-box">
+                    <div class="shadow">
+                        <div class="info-tab note-icon" title="Important Notes"><i></i></div>
+                        <div class="note-box">
+                            <p><strong>Note:</strong> Don't confuse the term rest parameters with the REST (REpresentational State Transfer). This has nothing to do with RESTful web services.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End:Note box-->
+				<hr>
+				<h2 id="spread-operator">The Spread Operator</h2>
+				<p>The spread operator, which is also denoted by (<code>...</code>), performs the exact opposite function of the rest operator. The spread operator spreads out (i.e. splits up) an array and passes the values into the specified function, as shown in the following example:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-spread-operator" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">addNumbers</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token operator">+</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ES5 way of passing array as an argument of a function</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>addNumbers<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> numbers<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 25</span>
+
+<span class="token comment">// ES6 spread operator</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">addNumbers</span><span class="token punctuation">(</span><span class="token operator">...</span>numbers<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 25</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>The spread operator can also be used to insert the elements of an array into another array without using the array methods like <code>push()</code>, <code>unshift()</code> <code>concat()</code>, etc.</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-insert-array-elements-into-another-array-using-spread-operator" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword">let</span> pets <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Cat"</span><span class="token punctuation">,</span> <span class="token string">"Dog"</span><span class="token punctuation">,</span> <span class="token string">"Parrot"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> bugs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Ant"</span><span class="token punctuation">,</span> <span class="token string">"Bee"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Creating an array by inserting elements from other arrays</span>
+<span class="token keyword">let</span> animals <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>pets<span class="token punctuation">,</span> <span class="token string">"Tiger"</span><span class="token punctuation">,</span> <span class="token string">"Wolf"</span><span class="token punctuation">,</span> <span class="token string">"Zebra"</span><span class="token punctuation">,</span> <span class="token operator">...</span>bugs<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>animals<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Cat,Dog,Parrot,Tiger,Wolf,Zebra,Ant,Bee</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<hr>
+				<h2>Destructuring Assignment</h2>
+				<p>The destructuring assignment is an expression that makes it easy to extract values from arrays, or properties from objects, into distinct variables by providing a shorter syntax.</p>
+				<p>There are two kinds of destructuring assignment expressions—the <em>array</em> and <em>object</em> destructuring assignment. Well, let's see how each of them exactly works:</p>
+				<h3>The array destructuring assignment</h3>
+				<p>Prior to ES6, to get an individual value of an array we need to write something like this:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=accessing-individual-array-elements-in-older-versions" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// ES5 syntax</span>
+<span class="token keyword">var</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Apple"</span><span class="token punctuation">,</span> <span class="token string">"Banana"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> fruits<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Apple</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Banana</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>In ES6, we can do the same thing in just one line using the array destructuring assignment:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-array-destructuring-assignment" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// ES6 syntax</span>
+<span class="token keyword">let</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Apple"</span><span class="token punctuation">,</span> <span class="token string">"Banana"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span> <span class="token operator">=</span> fruits<span class="token punctuation">;</span> <span class="token comment">// Array destructuring assignment</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Apple</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Banana</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>You can also use <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php#rest-operator">rest operator</a> in the array destructuring assignment, as shown here:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-using-rest-operator-in-array-destructuring-assignment" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// ES6 syntax</span>
+<span class="token keyword">let</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Apple"</span><span class="token punctuation">,</span> <span class="token string">"Banana"</span><span class="token punctuation">,</span> <span class="token string">"Mango"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> <span class="token operator">...</span>r<span class="token punctuation">]</span> <span class="token operator">=</span> fruits<span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Apple</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Banana,Mango</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<h3>The object destructuring assignment</h3>
+				<p>In ES5 to extract the property values of an object we need to write something like this:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=accessing-object-property-values-in-older-versions" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// ES5 syntax</span>
+<span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">"Peter"</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> name <span class="token operator">=</span> person<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token keyword">var</span> age <span class="token operator">=</span> person<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Peter</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 28</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>But in ES6, you can extract object's property values and assign them to the variables easily like this:</p>
+				<!--Code box-->
+				<div class="example break">
+					<div class="codebox">
+						<div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=es6-object-destructuring-assignment" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+						<pre class="syntax-highlighter line-numbers language-javascript"><code class=" language-javascript"><span class="token comment">// ES6 syntax</span>
+<span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">"Peter"</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> age<span class="token punctuation">}</span> <span class="token operator">=</span> person<span class="token punctuation">;</span> <span class="token comment">// Object destructuring assignment</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Peter</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 28</span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+					</div>
+				</div>
+                <!--End:Code box-->
+				<p>Most of the features we've discussed above are supported in the latest version of the major web browsers such as Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, etc.</p>
+                <p>Alternatively, you can use the online transpilers (source-to-source compilers) like <a rel="nofollow" href="https://babeljs.io/repl/" target="_blank">Babel</a> free of cost to transpile your current ES6 code to ES5 for better browser compatibility without leaving out the benefits of enhanced syntax and capabilities of ES6.</p>
+				<!--Bottom Navigation-->
+				<div class="bottom-link clearfix">
+                    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-ajax.php" class="previous-page-bottom">Previous Page</a>
+                    <a href="https://www.tutorialrepublic.com/javascript-examples.php" class="next-page-bottom">Next Page</a>
+                </div>
+                <!--End:Bottom Navigation-->
+                <!-- InstanceEndEditable -->
+                <div class="bottom-ad clearfix">
+
+     <div class="ad-label">Advertisements</div>
+
+     <!--Rectangle Left-->
+     <div class="rectangle-left fl">
+          <script async="" src="./JavaScript ES6 Features - Tutorial Republic_files/f(4).txt"></script>
+          <!-- Large Rectangle Left -->
+          <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="8162953958" data-adsbygoogle-status="done"><div id="aswift_1_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+     </div>
+     <!--End:Rectangle Left-->
+
+     <!--Rectangle Right-->
+     <div class="rectangle-right fr">
+          <script async="" src="./JavaScript ES6 Features - Tutorial Republic_files/f(4).txt"></script>
+          <!-- Large Rectangle Right -->
+          <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="3324015654" data-adsbygoogle-status="done"><div id="aswift_2_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+     </div>
+     <!--End:Rectangle Right-->
+
+</div>
+
+            </div>
+            <!--End:Text Content-->
+            <!--Feedback Form-->
+			<div class="snippets">
+	<a href="https://www.tutorialrepublic.com/snippets/gallery.php" target="_blank"><img src="./JavaScript ES6 Features - Tutorial Republic_files/bootstrap-code-snippets.png" alt="Bootstrap UI Design Templates"></a>
+</div>            <!--End:Feedback Form-->
+        </div>        
+        <div class="rightcolumn">
+            <div class="sidebar">
+    
+    <div class="ad-label">Advertisements</div>
+
+    <div class="skyscraper primary">
+        <script async="" src="./JavaScript ES6 Features - Tutorial Republic_files/f(4).txt"></script>
+        <!-- Premium Skyscraper -->
+        <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="4376141825" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript ES6 Features - Tutorial Republic_files/ads(1).html" data-google-container-id="a!4" data-google-query-id="CP-aq5bpwfsCFSOEywEdJl8GmQ" data-load-complete="true"></iframe></div></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="skyscraper">
+     <script async="" src="./JavaScript ES6 Features - Tutorial Republic_files/f(4).txt"></script>
+     <!-- Bottom Skyscraper -->
+     <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="3387984471" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_4_host" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript ES6 Features - Tutorial Republic_files/ads(2).html" data-google-container-id="a!5" data-google-query-id="CKKrq5bpwfsCFQRb7Aod4u0O2A" data-load-complete="true"></iframe></div></ins>
+     <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+</div>        </div>
+    </div>
+    <!--Footer-->
+	<!--Footer-->
+<div class="footer">
+    <div class="appeal">
+        <div class="wrapper">
+            <p>Is this website helpful to you? Please give us a
+            <a href="https://www.tutorialrepublic.com/like.php" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=250,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;">like</a>,
+            or share your <a href="https://www.tutorialrepublic.com/contact-us.php" target="_blank">feedback</a><em> to help us improve</em>.
+            Connect with us on <a href="https://www.facebook.com/tutorialrepublic" target="_blank">Facebook</a> and <a href="https://twitter.com/tutrepublic" target="_blank">Twitter</a> for the latest updates.</p>               
+        </div>
+    </div>
+    <div class="footer-inner">
+        <div class="wrapper clearfix">                
+            <div class="link-box">
+                <h4>About Us</h4>
+                <div class="clearfix">
+                    <a href="https://www.tutorialrepublic.com/about-us.php">Our Story</a>                    
+                    <a href="https://www.tutorialrepublic.com/terms-of-use.php">Terms of Use</a>
+                    <a href="https://www.tutorialrepublic.com/privacy-policy.php">Privacy Policy</a>                    
+                </div>
+            </div>
+            <div class="link-box">
+                <h4>Contact</h4>
+                <div class="clearfix">
+                    <a href="https://www.tutorialrepublic.com/contact-us.php">Contact Us</a>                    
+                    <a href="https://www.tutorialrepublic.com/contact-us.php" target="_blank">Report Error</a>
+                    <a href="https://www.tutorialrepublic.com/advertise-with-us.php">Advertise</a>                    
+                </div>
+            </div>
+            <div class="tool-box">
+                <h4>Interactive Tools</h4>
+                <div class="tools-list clearfix" id="tools">
+                    <a href="https://www.tutorialrepublic.com/font-awesome-icons-classes.php" target="_blank">Font Awesome Icon Search Utility</a>
+                    <a href="https://www.tutorialrepublic.com/html-formatter.php" target="_blank">HTML Formatter</a>
+                    <a href="https://www.tutorialrepublic.com/faq/what-is-the-maximum-length-of-title-and-meta-description-tag.php">Title &amp; Meta Length Calculator</a>
+                    <a href="https://www.tutorialrepublic.com/html-reference/html-color-picker.php">HTML Color Picker</a>
+                    <a href="https://www.tutorialrepublic.com/twitter-bootstrap-button-generator.php" target="_blank">Bootstrap Button Generator</a>
+                    <a href="https://www.tutorialrepublic.com/codelab.php?topic=sql&amp;file=select-all" target="_blank">SQL Playground</a>
+                    <a href="https://www.tutorialrepublic.com/bootstrap-icons-classes.php" target="_blank">Bootstrap Icon Finder</a>
+                    <a href="https://www.tutorialrepublic.com/codelab.php?topic=html&amp;file=hello-world" target="_blank">HTML Editor</a>
+                </div>
+            </div>
+            <div class="footer-logo">
+                <p><img src="./JavaScript ES6 Features - Tutorial Republic_files/logo.svg" alt="TutorialRepublic"></p><p>
+					</p><div>
+						<a href="https://www.buymeacoffee.com/tutrepublic" class="bmc-btn" rel="nofollow" target="_blank">
+    						<img src="./JavaScript ES6 Features - Tutorial Republic_files/bmc-btn.png" alt="BMC">
+						</a>
+					</div>
+            </div>
+        </div>
+    </div>           
+        <div class="bottom-strip">
+        <div class="wrapper">
+            <div class="notice">Copyright © 2022 Tutorial Republic. All Rights Reserved.</div>
+            <div class="social-media">
+                <em>Share This:</em>
+                <a href="https://facebook.com/sharer.php?u=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-es6-features.php" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;" title="Facebook"><i class="icon-facebook"></i></a>
+                <a href="https://twitter.com/share?text=JavaScript%20ES6%20Features%20-%20&amp;url=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-es6-features.php" id="tweet-btn" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;su=JavaScript%20ES6%20Features%20&amp;body=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-es6-features.php" id="email-btn" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;" rel="noreferrer" title="Gmail"><i class="icon-mail"></i></a>
+            </div>
+        </div>            
+    </div>
+    <script>
+        var title = document.title.replace('- Tutorial Republic', '');
+        document.getElementById('tweet-btn').href = 'https://twitter.com/share?text=' + title + '- &url=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-es6-features.php';
+        document.getElementById('email-btn').href = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + title + '&body=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-es6-features.php';
+    </script>
+</div>
+<!--End:Footer-->
+    
+<div class="backdrop mobile-only"></div>
+
+<!-- TutorialRepublic base script -->
+<script>
+// Adding CSS files
+[	
+	'/lib/styles/legacy/extended-1.1.css',
+	'/lib/icomoon/style.css'
+].forEach(function(href) {
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.href = href;
+	(document.getElementsByTagName('head')[0]).appendChild(link);
+});
+
+// Adding JS files
+[
+	'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
+	'/lib/js/prism.js',
+	'/lib/js/default-1.3.js'
+].forEach(function(src) {
+	var script = document.createElement('script');
+	script.async = false; // important
+	script.src = src;
+	(document.getElementsByTagName('body')[0]).appendChild(script);
+});
+</script><script src="./JavaScript ES6 Features - Tutorial Republic_files/jquery.min.js.download"></script><script src="./JavaScript ES6 Features - Tutorial Republic_files/prism.js.download"></script><script src="./JavaScript ES6 Features - Tutorial Republic_files/default-1.3.js.download"></script>
+
+
+    <!--End:Footer-->
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_5_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript ES6 Features - Tutorial Republic_files/ads(3).html" data-google-container-id="a!6" data-load-complete="true"></iframe></div></ins><div style="display: none" class="ubey-RecordingScreen-count-down ubey-RecordingScreen-count-down-container">
+    <style>
+        .ubey-RecordingScreen-count-down-container {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            z-index: 9999999999999;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .ubey-RecordingScreen-count-down-content {
+            position: absolute;
+            display: flex;
+            top: 50%;
+            left: 50%;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            height: 15em;
+            width: 15em;
+            transform: translate(-50%, -100%);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+        }
+
+        #ubey-RecordingScreen-count-count {
+            font-size: 14em;
+            transform: translateY(-2%);
+        }
+    </style>
+    <div class="ubey-RecordingScreen-count-down-content">
+        <span id="ubey-RecordingScreen-count-count"></span>
+    </div>
+</div><iframe src="./JavaScript ES6 Features - Tutorial Republic_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./JavaScript ES6 Features - Tutorial Republic_files/zrt_lookup.html" style="display: none;"></iframe><!-- InstanceEnd --></html>

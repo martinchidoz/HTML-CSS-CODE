@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://www.tutorialrepublic.com/javascript-tutorial/javascript-ajax.php -->
+<html lang="en"><!-- InstanceBegin template="/Templates/javascript.dwt.php" codeOutsideHTMLIsLocked="false" --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- InstanceBeginEditable name="doctitle" -->
+    <title>JavaScript Ajax - Tutorial Republic</title>
+    <!-- InstanceEndEditable -->
+    	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="fb:admins" content="100001054961582">
+<meta property="fb:app_id" content="1404574483159557">
+<meta property="og:image" content="/lib/images/signature.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://www.tutorialrepublic.com/favicon.png">
+<style>
+html,body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,img{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+html,body{min-height:100%}
+p{margin:0 0 12px}
+ol,ul{margin:0 0 12px}
+a,a:active,a:visited{outline:none;color:#1db79f;text-decoration:none}
+a img{border:none;outline:none}
+p code,table td:last-child code,.content ul li code,code.mark{padding:2px 4px;color:#333;background-color:#f1f1f1;border-radius:4px}
+a code{color:inherit;background:none;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+table td{vertical-align:top}
+body{min-width:1300px;color:#414141;background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",sans-serif;font-size:17px;line-height:1.7}
+input,select,textarea,button,div,span,a{box-sizing:border-box}
+h1,h2,h3,h4{color:#262626;margin:20px 0 10px;line-height:1.5;font-weight:600}
+h1{font-size:34px;margin-top:17px}
+h2{font-size:28px}
+h3{font-size:22px}
+.space{margin-bottom:25px!important}
+.break{margin-bottom:15px!important}
+.text-center{text-align:center!important}
+.scroll{height:195px;overflow-y:scroll}
+.scroll.large{height:245px}
+.scroll.xlarge{height:290px}
+.scroll.xxlarge{height:340px}
+sup{font-size:13px}
+h1 sup{background:#ec0000;border-radius:3px;padding:5px 10px;font-size:15px;color:#fff;position:relative;top:5px}
+.leaderboard{padding-top:14px;position:relative;height:105px;overflow:hidden}
+.intro-image img{display:block;padding:10px 0 25px;max-width:100%}
+.clearfix::after{content:".";display:block;height:0;clear:both;visibility:hidden}
+code,.code,.syntax,.green-box,.sky-box,.gray-box,.pink-box,.red-box,.at-rule,.codebox pre,.console-output,.command{font-size:16px;font-family:Consolas,Monaco,Courier,monospace}
+.console-output{margin:15px 0}
+.command{background:#f2f2f2;padding:16px 18px;margin:15px 0 25px;border-radius:3px}
+hr{border:none;border-bottom:1px solid #e7e9ed;height:1px;margin:30px 0}
+.summary,.topic{border:1px solid #eaeaea;border-width:1px 0;margin:20px 0;padding:10px 0;color:#8e9aa6;line-height:1.5}
+h2.section-title span{display:inline-block;border-bottom:4px solid #c9d7e0;padding:0 50px 12px 0}
+.wrapper{width:1300px;padding:0 15px;margin:0 auto}
+.header{background:#23384e;padding:16px 0}
+input.search{background:#fff;border:0 none;color:#807E7E;float:left;height:38px;line-height:26px;font-size:14px;margin:0 0 0 12px;outline:medium none;padding:6px 14px;width:500px;border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.6);font-family:inherit}
+.search-btn{color:rgba(0,0,0,.6);background:#ebebeb;border:none;outline:none;cursor:pointer;float:left;height:38px;line-height:46px;width:44px;display:block;margin-left:-2px;border-radius:0 2px 2px 0;box-shadow:0 0 1px rgba(0,0,0,0.7)}
+.logo{width:304px}
+.logo img{height:44px;margin:-3px 0;display:block}
+.site-search{float:left;margin-left:100px}
+.menu{background-color:#f5f5f5;box-shadow:0 1px 1px rgba(0,0,0,.15);position:relative;z-index:9}
+.menu a{color:#666;display:inline-block;padding:0 10px;text-decoration:none;font-size:14px;font-weight:600;height:48px;line-height:48px}
+.menu a:first-child{margin-left:-10px}
+.menu a.tool-link{float:right;display:block;border-radius:30px;line-height:28px;position:relative;height:auto;top:9px;padding:0 12px;color:#1ebba3;border:1px double #1ebba3}
+.fl,.logo{float:left}
+.leftcolumn{width:240px;float:left;font-size:16px;color:#4f4f4f}
+.centercolumn{width:850px;float:left}
+.rightcolumn{width:180px;float:left}
+.content{background:#fff;padding:15px 40px 20px;border:1px solid #dedede;border-top:none;border-radius:1px}
+.sidebar{width:160px;float:left;padding-top:28px;margin-left:20px;position:relative}
+.leftcolumn .segment{margin:16px 0 12px;position:relative;font-size:18px;font-weight:600;line-height:normal}
+.leftcolumn a{color:#4f4f4f;font-size:16px;line-height:26px;display:block;border-bottom:1px solid transparent}
+.leftcolumn ul{list-style:none;padding:0;margin:0}
+.segment,.chapters,.chapters a{float:left;clear:both}
+h1 code,h2 code,h3 code{font:inherit}
+.color-box{margin:15px 0;padding-left:20px}
+.note-box,.warning-box,.tip-box{padding:8px 8px 3px 26px}
+.info-tab{float:left;margin-left:-23px}
+.content ul li{margin-top:7px}
+.extra{padding-top:5px}
+.green-box,.sky-box,.gray-box,.red-box,.pink-box{color:#000;margin-top:15px;padding:10px;background-color:#f6f8fa;border:1px solid #d7e2ec}
+.example{background:#f4f5f6;padding:3px;margin:15px 0}
+.codebox{background:#fff;border:1px solid #ddd}
+.codebox-title{height:41px;padding-left:12px;border-bottom:1px solid #ddd;background:#f5f5f5}
+.codebox-title h4{margin:0;font-size:18px;line-height:40px;float:left;font-weight:600}
+a.try-btn,a.download-btn{width:140px;height:40px;color:#333;font-size:15px;line-height:41px;font-weight:600;text-align:center;text-decoration:none;float:right;display:block;border-left:1px solid #ddd;background:rgba(27,31,35,0.08);box-sizing:border-box;font-family:Arial,sans-serif}
+a.try-btn span{font-size:18px;line-height:normal}
+.hide,.code-style,.box-size,.bottom-link,.footer,.code-style,.snippets,.report-error,.badge,.social,.ad-label,.mobile-only,ul.tree-menu li ul{display:none}
+.skyscraper{width:160px;height:600px;overflow:hidden;margin-bottom:20px;background:#ebecf0}
+.bottom-ad{margin-top:46px;padding:24px;position:relative;background:url(/lib/images/smooth-line.png) no-repeat center #f9f9f9}
+.rectangle-left,.rectangle-right{min-width:336px;min-height:280px;overflow:hidden}
+.fr,a.previous-page,a.next-page,.rectangle-right,.topic-nav{float:right}
+a.previous-page,a.next-page{width:32px;height:32px;line-height:30px}
+.shadow{background:#F7F8F9;padding:3px;margin:10px 0}
+.syntax{color:#2f4959;padding:13px 18px;background:#F9F9FA;border:1px solid #ddd;font-size:15px}
+code[class*="language-"],pre[class*="language-"]{color:#000;background:none;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-break:normal;word-wrap:normal;line-height:1.5;tab-size:4;hyphens:none}
+pre[class*="language-"]{position:relative;margin:.5em 0;overflow:visible;padding:0}
+pre[class*="language-"]>code{position:relative;border-left:10px solid #358ccb;box-shadow:-1px 0 0 0 #358ccb,0 0 0 1px #dfdfdf;background-color:#fdfdfd;background-image:linear-gradient(transparent 50%,rgba(69,142,209,0.04) 50%);background-size:3em 3em;background-origin:content-box;background-attachment:local}
+code[class*="language"]{max-height:inherit;height:inherit;padding:0 1em;display:block;overflow:auto}
+:not(pre) > code[class*="language-"]{position:relative;padding:.2em;border-radius:.3em;color:#c92c2c;border:1px solid rgba(0,0,0,0.1);display:inline;white-space:normal}
+pre[class*="language-"].line-numbers{padding-left:0}
+pre[class*="language-"].line-numbers code{padding-left:3.8em}
+pre[class*="language-"].line-numbers .line-numbers-rows{left:0}
+pre[class*="language-"][data-line]{padding-top:0;padding-bottom:0;padding-left:0}
+pre[data-line] code{position:relative;padding-left:4em}
+pre .line-highlight{margin-top:0}
+pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber;white-space:pre-wrap!important}
+pre.line-numbers > code{position:relative;white-space:inherit}
+.line-numbers-rows,.codebox pre.inactive{display:none}
+.codebox pre.syntax-highlighter{margin:0;padding:0;overflow:auto}
+pre.line-numbers .line-numbers-rows{border-right:3px solid #6CE26C}
+.codebox pre.syntax-highlighter > code{box-shadow:none!important;padding-left:3.8em;background-image:linear-gradient(transparent 50%,#F8F8F8 50%);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace!important;font-size:16px;line-height:1.5;overflow-wrap:break-word}
+.codebox pre.syntax-highlighter,.codebox pre.syntax-highlighter code{border:none;width:100%;box-sizing:border-box}
+pre.line-numbers code,pre.line-numbers .line-numbers-rows{padding-top:2px;padding-bottom:2px}
+.preview-box{padding:15px;text-align:center;cursor:pointer;overflow:hidden;background:#FFF;border:1px solid #e6e6e6}
+.preview-box a,.preview-box img{display:block;margin:0 auto}
+.download-box{text-align:center;padding:20px 0;margin:20px 0 10px}
+.output-box{border-color:#d4d4d4;border-style:solid;border-width:1px 0;padding:5px 15px;overflow:hidden;background:#fff;margin:10px 0}
+.demo-box{margin-top:15px}
+.subhead{border-bottom:3px solid #DCE3EB;margin-bottom:15px;padding-bottom:10px}
+table.data,table.description{width:100%;font-size:92%}
+table.data th{color:#000;padding:8px 7px;text-align:left;font-size:15px;background:#F8F8F8}
+table.data td{color:#484848;padding:5px 7px;background:#fff}
+table.data th,table.data td{vertical-align:top;border:1px solid #DCE3EB}
+table.data tr.section th,table.data td.section{font-size:15px;background:#f0f4f7}
+table.description th{width:150px}
+table.no-wrap tr td:first-child{white-space:nowrap}
+.topic-nav{padding-right:5px;color:#d0d0d0}
+.topic-nav a{padding:0 15px;margin:0 0 0 5px;position:relative;display:inline-block}
+.topic-nav a::after{font-size:24px;position:absolute;line-height:22px}
+.topic-nav a:first-child{margin:0 5px 0 0}
+.topic-nav a:first-child::after{content:'\00AB';left:-5px}
+.topic-nav a:last-child::after{content:'\00BB';right:-5px}
+@media screen and (max-width: 1280px) {
+body{min-width:1260px}
+.wrapper{width:1260px}
+.leftcolumn{width:230px}
+.centercolumn{width:820px}
+.preview-box img{max-width:100%;height:auto}
+}
+@media screen and (max-width: 800px) {
+body{min-width:100%;max-width:100%;padding-top:46px}
+.wrapper{width:100%;padding:0}
+.header{height:46px;padding:5px 0;position:fixed;top:0;left:0;right:0;width:100%;z-index:99}
+.logo{width:auto;display:block;padding:6px 0 0 60px;position:absolute;left:0;z-index:100}
+.logo img{height:30px}
+.menu{width:100%;padding-left:12px;padding-right:12px;overflow-x:auto;white-space:nowrap}
+.centercolumn{width:100%;float:none}
+.content{padding:10px;border-width:0 0 1px 0}
+.content img{max-width:100%;height:auto}
+.skyscraper{display:inline-block}
+.shadow,.example,.console-output,.content pre{max-width:100%;overflow-x:auto}
+.codebox-title{position:relative}
+.codebox.multi-style-mode pre{padding-top:7px;margin-top:36px;border-top:1px solid #ddd}
+.bottom-ad{height:auto;background:none;padding:30px 0 0;margin:40px 0 0;text-align:center;position:relative}
+.rectangle-left,.rectangle-right{float:none;display:inline-block;margin:10px auto;background:#EDEEF2}
+.leftcolumn,.footer,.social,.site-search,.code-style,.menu a.tool-link,.backdrop{display:none}
+.summary,.topic{padding:5px 0;margin:10px 0}
+.leftcolumn,.centercolumn,.rightcolumn,.sidebar{float:none}
+.header,.menu,.centercolumn,.footer,.appeal-text{width:100%}
+a.try-btn,a.download-btn{width:130px}
+.native-unit{margin-bottom:30px}
+.rightcolumn,.sidebar{margin: 25px auto 0}
+.overview{padding-right:0}
+.scroll-pane{overflow-x:auto}
+table.data{min-width:480px}
+table.data pre{display:inline;white-space:normal}
+table tr th,table tr td{width:auto!important}
+.preview-box{padding:6px}
+.leaderboard{margin:20px 0}
+h1{font-size:30px}
+h2{font-size:24px}
+h3{font-size:20px}
+.codebox pre.syntax-highlighter{overflow-x:auto}
+.codebox pre.syntax-highlighter > code{min-width:614px;height:auto;overflow-x:hidden}
+}
+@media screen and (min-width: 801px) {
+.site-search,.leftcolumn,.social{display:block!important}
+.backdrop{display:none!important}
+.hide-scroll{overflow-x:hidden!important}
+}
+.menu a.old-version{height:21px;font-size:13px;line-height:17px;border:1px double;border-radius:40px;margin-right:10px}</style>
+    
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    
+	<script src="./JavaScript Ajax - Tutorial Republic_files/f.txt"></script><script src="./JavaScript Ajax - Tutorial Republic_files/f(1).txt" id="google_shimpl"></script><script async="" src="./JavaScript Ajax - Tutorial Republic_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-381VQH4NHT');
+</script><link rel="stylesheet" href="./JavaScript Ajax - Tutorial Republic_files/extended-1.1.css"><link rel="stylesheet" href="./JavaScript Ajax - Tutorial Republic_files/style.css"><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="./JavaScript Ajax - Tutorial Republic_files/f(2).txt" as="script"><script type="text/javascript" src="./JavaScript Ajax - Tutorial Republic_files/f(2).txt"></script><link rel="preload" href="./JavaScript Ajax - Tutorial Republic_files/f(3).txt" as="script"><script type="text/javascript" src="./JavaScript Ajax - Tutorial Republic_files/f(3).txt"></script></head>
+<body>
+    <!--Header-->
+    
+<div class="header">
+    <div class="wrapper clearfix">
+        <button type="button" class="open-menu mobile-only"><i class="icon-menu"></i></button>
+        <div class="logo">
+            <a href="https://www.tutorialrepublic.com/"><img src="./JavaScript Ajax - Tutorial Republic_files/logo.svg" alt="TutorialRepublic"></a>
+        </div>
+        <div class="site-search">
+            <form action="https://www.google.com/search" method="get" target="_blank" class="clearfix">
+                <input type="hidden" value="www.tutorialrepublic.com" name="sitesearch">
+                <input type="text" name="q" placeholder="Search topics, tutorials, questions and answers..." id="searchInput" class="search">
+                <button type="submit" class="search-btn"><span class="icon-search"></span></button>
+            </form>
+        </div>
+        <div class="social">                
+            <a href="https://www.facebook.com/tutorialrepublic" target="_blank" title="Join us on Facebook"><i class="icon-facebook"></i></a>
+            <a href="https://twitter.com/tutrepublic" target="_blank" title="Follow us on Twitter"><i class="icon-twitter"></i></a>
+            <a href="https://www.tutorialrepublic.com/contact-us.php" target="_blank" title="Send us an Email"><i class="icon-mail"></i></a>
+        </div>
+        <button type="button" class="open-search mobile-only">
+            <i class="icon-search"></i>
+        </button>
+    </div>    
+</div>
+<div class="menu">
+    <div class="wrapper">
+        <a href="https://www.tutorialrepublic.com/" title="Home Page">HOME</a>
+        <a href="https://www.tutorialrepublic.com/html-tutorial/" title="HTML Tutorial">HTML5</a>            
+        <a href="https://www.tutorialrepublic.com/css-tutorial/" title="CSS Tutorial">CSS3</a>
+        <a href="https://www.tutorialrepublic.com/javascript-tutorial/" title="JavaScript Tutorial">JAVASCRIPT</a>
+        <a href="https://www.tutorialrepublic.com/jquery-tutorial/" title="jQuery Tutorial">JQUERY</a>
+        <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" title="Bootstrap 5 Tutorial">BOOTSTRAP5</a>
+		<a href="https://www.tutorialrepublic.com/twitter-bootstrap-4-tutorial/" class="old-version" title="Bootstrap 4.6 Tutorial">v4.6</a>
+        <a href="https://www.tutorialrepublic.com/php-tutorial/" title="PHP Tutorial">PHP7</a> 
+        <a href="https://www.tutorialrepublic.com/sql-tutorial/" title="SQL Tutorial">SQL</a>
+        <a href="https://www.tutorialrepublic.com/references.php" title="Web References">REFERENCES</a>
+        <a href="https://www.tutorialrepublic.com/practice-examples.php" title="Practice Examples and Demos">EXAMPLES</a>
+        <a href="https://www.tutorialrepublic.com/faq.php" title="Frequently Asked Questions and Answers">FAQ</a>
+        <a href="https://www.tutorialrepublic.com/snippets/gallery.php" title="Bootstrap Code Snippets" target="_blank">SNIPPETS</a>
+        <a href="https://www.tutorialrepublic.com/codelab.php" class="tool-link" target="_blank">Online HTML Editor</a>
+    </div>        
+</div>    <!--End:Header-->
+    <div class="wrapper clearfix">
+        <div class="leftcolumn" id="myNav">
+		
+        <div class="segment"><span>JAVASCRIPT</span> BASIC</div>
+<div class="chapters">
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/" class="">JS Introduction</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-get-started.php">JS Getting Started</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-syntax.php">JS Syntax</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-variables.php">JS Variables</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-generating-output.php">JS Generating Output</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-data-types.php">JS Data Types</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-operators.php">JS Operators</a>	
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-events.php">JS Events</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-strings.php">JS Strings</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-numbers.php">JS Numbers</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-if-else-statements.php">JS If…Else</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-switch-case-statements.php">JS Switch…Case</a>	
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-arrays.php">JS Arrays</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-sorting-arrays.php">JS Sorting Arrays</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-loops.php">JS Loops</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-functions.php">JS Functions</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-objects.php">JS Objects</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> &amp; DOM</div>
+<div class="chapters">
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-nodes.php">JS DOM Nodes</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-selectors.php">JS DOM Selectors</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-styling.php">JS DOM Styling</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-get-set-attributes.php">JS DOM Get Set Attributes</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-manipulation.php">JS DOM Manipulation</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-navigation.php">JS DOM Navigation</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> &amp; BOM</div>
+<div class="chapters">
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window.php">JS Window</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-screen.php">JS Screen</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-location.php">JS Location</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-history.php">JS History</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-window-navigator.php">JS Navigator</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-dialog-boxes.php">JS Dialog Boxes</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-timers.php">JS Timers</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> ADVANCED</div>
+<div class="chapters">
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-date-and-time.php">JS Date and Time</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-math-operations.php">JS Math Operations</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-type-conversions.php">JS Type Conversions</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-event-listeners.php">JS Event Listeners</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-event-propagation.php">JS Event Propagation</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-borrowing-methods.php">JS Borrowing Methods</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-hoisting.php">JS Hoisting Behavior</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-closures.php">JS Closures</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-strict-mode.php">JS Strict Mode</a>   
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-json-parsing.php">JS JSON Parsing</a>
+    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-error-handling.php">JS Error Handling</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-regular-expressions.php">JS Regular Expressions</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-form-validation.php">JS Form Validation</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-cookies.php">JS Cookies</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-ajax.php" class="selected">JS AJAX Requests</a>
+	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php">JS ES6 Features</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> EXAMPLES</div>
+<div class="chapters">
+    <a href="https://www.tutorialrepublic.com/javascript-examples.php">JS Practice Examples</a>
+	<a href="https://www.tutorialrepublic.com/faq.php#javascript-jquery">JS FAQ's Answers</a>
+</div>
+<div class="segment"><span>JAVASCRIPT</span> REFERENCE</div>
+<ul class="chapters tree-menu">
+    <li class="tree"><span class="shorthand">JS&nbsp;Properties&nbsp;and&nbsp;Methods</span>
+        <ul class="hide">
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php">JS Array Object</a></li>
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-boolean-object.php">JS Boolean Object</a></li> 
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-date-object.php">JS Date Object</a></li> 
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-math-object.php">JS Math Object</a></li> 
+			<li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-number-object.php">JS Number Object</a></li> 
+            <li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-string-object.php">JS String Object</a></li> 			         
+        </ul>
+	</li><li><a href="https://www.tutorialrepublic.com/javascript-reference/javascript-reserved-keywords.php">JS Reserved Keywords</a></li>
+	<li><a href="https://www.tutorialrepublic.com/references.php" class="more">More references</a></li>
+</ul>        
+                </div>
+        <div class="centercolumn">
+            <!--Text Content-->
+            <div class="content">
+                <div class="leaderboard">
+
+    <div class="ad-label">Advertisements</div>
+
+    <div class="ad-container">
+        <script async="" src="./JavaScript Ajax - Tutorial Republic_files/f(4).txt"></script>
+<!-- Responsive Leaderboard -->
+<ins class="adsbygoogle" style="display: block; width: 728px; max-width: 728px; height: 90px;" data-ad-client="ca-pub-9107540490929984" data-ad-slot="4302666817" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_0_host" style="border: none; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:728px;height:90px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript Ajax - Tutorial Republic_files/ads.html" data-google-container-id="a!1" data-google-query-id="COHJsqPlwfsCFdTU7Qodh2gL5w" data-load-complete="true"></iframe></div></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>    </div>
+
+    
+</div>                <!-- InstanceBeginEditable name="main_content" -->
+                <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-cookies.php" class="previous-page" title="Go to Previous Page"></a>
+            	<a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php" class="next-page" title="Go to Next Page"></a>
+                <h1>JavaScript <span>Ajax</span></h1>
+                <p class="summary">In this tutorial you will learn what Ajax is and how to implement it in JavaScript.</p>
+				<h2>What is Ajax?</h2>
+				<p>Ajax stands for <b>A</b>synchronous <b>J</b>avascript <b>A</b>nd <b>X</b>ml. Ajax is just a means of loading data from the server and selectively updating parts of a web page without reloading the whole page.</p>
+				<p>Basically, what Ajax does is make use of the browser's built-in <code>XMLHttpRequest</code> (XHR) object to send and receive information to and from a web server asynchronously, in the background, without blocking the page or interfering with the user's experience.</p>
+				<p>Ajax has become so popular that you hardly find an application that doesn't use Ajax to some extent. The example of some large-scale Ajax-driven online applications are: Gmail, Google Maps, Google Docs, YouTube, Facebook, Flickr, and so many other applications.</p>
+				<!--Note box-->
+				<div class="color-box space">
+					<div class="shadow">
+						<div class="info-tab note-icon" title="Important Notes"><i></i></div>
+						<div class="note-box">
+							<p><strong>Note:</strong> Ajax is not a new technology, in fact, Ajax is not even really a technology at all. Ajax is just a term to describe the process of exchanging data from a web server asynchronously through JavaScript, without refreshing the page.</p>
+						</div>
+					</div>
+				</div>
+				<!--End:Note box-->
+				<!--Tip Box-->
+                <div class="color-box space">
+                    <div class="shadow">
+                        <div class="info-tab tip-icon" title="Useful Tips"><i></i></div>
+                        <div class="tip-box">
+                            <p><strong>Tip:</strong> Don't get confused by the term <b>X</b> (i.e. <strong>XML</strong>) in AJAX. It is only there for historical reasons. Other data exchange format such as JSON, HTML, or plain text can be used instead of XML.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End:Tip Box-->
+				<h2>Understanding How Ajax Works</h2>
+				<p>To perform Ajax communication JavaScript uses a special object built into the browser—an <code>XMLHttpRequest</code> (XHR) object—to make HTTP requests to the server and receive data in response.</p>
+				<p>All modern browsers (Chrome, Firefox, IE7+, Safari, Opera) support the <code>XMLHttpRequest</code> object.</p>
+				<p>The following illustrations demonstrate how Ajax communication works:</p>
+				<p class="text-center"><img src="./JavaScript Ajax - Tutorial Republic_files/ajax-illustration.png" alt="Ajax Illustration"></p>
+				<p>Since Ajax requests are usually asynchronous, execution of the script continues as soon as the Ajax request is sent, i.e. the browser will not halt the script execution until the server response comes back.</p>
+				<p>In the following section we'll discuss each step involved in this process one by one:</p>
+				<h2>Sending Request and Retrieving the Response</h2>
+				<p>Before you perform Ajax communication between client and server, the first thing you must do is to instantiate an <code>XMLHttpRequest</code> object, as shown below:</p>
+				<div class="green-box break">var request = new XMLHttpRequest();</div>
+				<p>Now, the next step in sending the request to the server is to instantiating the newly-created request object using the <code>open()</code> method of the XMLHttpRequest object.</p>
+				<p>The <code>open()</code> method typically accepts two parameters— the HTTP request method to use, such as "GET", "POST", etc., and the URL to send the request to, like this:</p>
+				<div class="pink-box break">request.open("GET", "info.txt"); -Or- request.open("POST", "add-user.php");</div>				
+				<!--Tip Box-->
+                <div class="color-box">
+                    <div class="shadow">
+                        <div class="info-tab tip-icon" title="Useful Tips"><i></i></div>
+                        <div class="tip-box">
+                            <p><strong>Tip:</strong> The file can be of any kind, like <code>.txt</code> or <code>.xml</code>, or server-side scripting files, like <code>.php</code> or <code>.asp</code>, which can perform some actions on the server (e.g. inserting or reading data from database) before sending the response back to the client.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End:Tip Box-->
+				<p>And finally send the request to the server using the <code>send()</code> method of the XMLHttpRequest object.</p>				
+				<div class="sky-box break">request.send(); -Or- request.send(<em>body</em>);</div>
+				<!--Note box-->
+				<div class="color-box">
+					<div class="shadow">
+						<div class="info-tab note-icon" title="Important Notes"><i></i></div>
+						<div class="note-box">
+							<p><strong>Note:</strong> The <code>send()</code> method accepts an optional <code><em>body</em></code> parameter which allow us to specify the request's body. This is primarily used for HTTP POST requests, since the HTTP GET request doesn't have a request body, just request headers.</p>
+						</div>
+					</div>
+				</div>
+				<!--End:Note box-->
+				<p>The GET method is generally used to send small amount of data to the server. Whereas, the POST method is used to send large amount of data, such as form data.</p>
+				<p>In GET method, the data is sent as URL parameters. But, in POST method, the data is sent to the server as a part of the HTTP request body. Data sent through POST method will not visible in the URL.</p>
+				<p>See the chapter on <a href="https://www.tutorialrepublic.com/php-tutorial/php-get-and-post.php">HTTP GET vs. POST</a> for a detailed comparison of these two methods.</p>
+				<p class="space">In the following section we'll take a closer look at how Ajax requests actually works.</p>
+				<h2>Performing an Ajax GET Request</h2>
+				<p>The GET request is typically used to get or retrieve some kind of information from the server that doesn't require any manipulation or change in database, for example, fetching search results based on a term, fetching user details based on their id or name, and so on.</p>
+				<p>The following example will show you how to make an Ajax GET request in JavaScript.</p>
+				<!--Code box-->
+                <div class="example">
+                    <div class="codebox">
+                        <div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=ajax-get-request" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+                        <pre class="syntax-highlighter line-numbers language-markup"><code class=" language-markup"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>JavaScript Ajax GET Demo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">function</span> <span class="token function">displayFullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Creating the XMLHttpRequest object</span>
+    <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Instantiating the request object</span>
+    request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"greet.php?fname=John&amp;lname=Clark"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Defining event listener for readystatechange event</span>
+    request<span class="token punctuation">.</span><span class="token function-variable function">onreadystatechange</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Check if the request is compete and was successful</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Inserting the response from server into an HTML element</span>
+            document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>responseText<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Sending the request to the server</span>
+    request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Content of the result DIV box will be replaced by the server response<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>displayFullName()<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Display Full Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<p>When the request is asynchronous, the <code>send()</code> method returns immediately after sending the request. Therefore you must check where the response currently stands in its lifecycle before processing it using the <code>readyState</code> property of the <code>XMLHttpRequest</code> object.</p>
+				<p>The <code>readyState</code> is an integer that specifies the status of an HTTP request. Also, the function assigned to the <code>onreadystatechange</code> event handler called every time the <code>readyState</code> property changes. The possible values of the <code>readyState</code> property are summarized below.</p>
+				<div class="shadow">
+					<table class="data">
+						<tbody><tr>
+							<th>Value</th>
+							<th>State</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td><code>0</code></td>
+							<td><code>UNSENT</code></td>
+							<td>An <code>XMLHttpRequest</code> object has been created, but the <code>open()</code> method hasn't been called yet (i.e. request not initialized).</td>
+						</tr>
+						<tr>
+							<td><code>1</code></td>
+							<td><code>OPENED</code></td>
+							<td>The <code>open()</code> method has been called (i.e. server connection established).</td>
+						</tr>
+						<tr>
+							<td><code>2</code></td>
+							<td><code>HEADERS_RECEIVED</code></td>
+							<td>The <code>send()</code> method has been called (i.e. server has received the request).</td>
+						</tr>
+						<tr>
+							<td><code>3</code></td>
+							<td><code>LOADING</code></td>
+							<td>The server is processing the request.</td>
+						</tr>
+						<tr>
+							<td><code>4</code></td>
+							<td><code>DONE</code></td>
+							<td>The request has been processed and the response is ready.</td>
+						</tr>
+					</tbody></table>
+				</div>
+				<!--Note box-->
+				<div class="color-box break">
+					<div class="shadow">
+						<div class="info-tab note-icon" title="Important Notes"><i></i></div>
+						<div class="note-box">
+							<p><strong>Note:</strong> Theoretically, the <code>readystatechange</code> event should be triggered every time the <code>readyState</code> property changes. But, most browsers do not fire this event when <code>readyState</code> changes to 0 or 1. However, all browsers fire this event when <code>readyState</code> changes to 4 .</p>
+						</div>
+					</div>
+				</div>
+				<!--End:Note box-->
+				<p>The <code>status</code> property returns the numerical HTTP status code of the XMLHttpRequest's response. Some of the common HTTP status codes are listed below:</p>
+				<ul>
+					<li>200 — OK. The server successfully processed the request.</li>
+					<li>404 — Not Found. The server can't find the requested page.</li>
+					<li>503 — Service Unavailable. The server is temporarily unavailable.</li>
+				</ul>
+				<p>Please check out the <a href="https://www.tutorialrepublic.com/html-reference/http-status-codes.php">HTTP status codes</a> reference for a complete list of response codes.</p>
+				<p>Here's the code from our "greet.php" file that simply creates the full name of a person by joining their first name and last name and outputs a greeting message.</p>
+				<!--Code box-->
+                <div class="example">
+                    <div class="codebox">
+                        <div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/examples/bin/download-source.php?topic=php&amp;file=greet" target="_top" class="download-btn" title="Download Source Code"><span>Download</span></a></div>
+                        <pre class="syntax-highlighter line-numbers language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"fname"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"lname"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$fname</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"fname"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$lname</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"lname"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Creating full name by joining first and last name</span>
+    <span class="token variable">$fullname</span> <span class="token operator">=</span> <span class="token variable">$fname</span> <span class="token punctuation">.</span> <span class="token double-quoted-string string">" "</span> <span class="token punctuation">.</span> <span class="token variable">$lname</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Displaying a welcome message</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">"Hello, <span class="token interpolation"><span class="token variable">$fullname</span></span>! Welcome to our website."</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">"Hi there! Welcome to our website."</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter important">?&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->				
+				<hr>
+				<h2>Performing an Ajax POST Request</h2>
+				<p>The POST method is mainly used to submit a form data to the web server.</p>
+				<p>The following example will show you how to submit form data to the server using Ajax.</p>
+				<!--Code box-->
+                <div class="example">
+                    <div class="codebox">
+                        <div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=ajax-post-request" target="_blank" class="try-btn" title="Try this code using online Editor">Try this code <span>»</span></a></div>
+                        <pre class="syntax-highlighter line-numbers language-markup"><code class=" language-markup"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>JavaScript Ajax POST Demo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">function</span> <span class="token function">postComment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Creating the XMLHttpRequest object</span>
+    <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Instantiating the request object</span>
+    request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"POST"</span><span class="token punctuation">,</span> <span class="token string">"confirmation.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Defining event listener for readystatechange event</span>
+    request<span class="token punctuation">.</span><span class="token function-variable function">onreadystatechange</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Check if the request is compete and was successful</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Inserting the response from server into an HTML element</span>
+            document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>responseText<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Retrieving the form data</span>
+    <span class="token keyword">var</span> myForm <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myForm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span>myForm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Sending the request to the server</span>
+    request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>formData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myForm<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>Name:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>Comment:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>postComment()<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Post Comment<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Content of the result DIV box will be replaced by the server response<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>    
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<p>If you are not using the <code>FormData</code> object to send form data, for example, if you're sending the form data to the server in the <em>query string</em> format, i.e. <code>request.send(key1=value1&amp;key2=value2)</code> then you need to <a href="https://www.tutorialrepublic.com/codelab.php?topic=javascript&amp;file=set-request-header" target="_blank">explicitly set the request header</a> using <code>setRequestHeader()</code> method, like this:</p>
+				<div class="pink-box break">request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");</div>
+				<p>The <code>setRequestHeader()</code> method, must be called after calling <code>open()</code>, but before calling <code>send()</code>.</p>
+				<p>Some common request headers are: <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>application/json</code>, <code>application/xml</code>, <code>text/plain</code>, <code>text/html</code>, and so on.</p>
+				<!--Note box-->
+				<div class="color-box space">
+					<div class="shadow">
+						<div class="info-tab note-icon" title="Important Notes"><i></i></div>
+						<div class="note-box">
+							<p><strong>Note:</strong> The <code>FormData</code> object provides an easy way to construct a set of key/value pairs representing form fields and their values which can be sent using <code>XMLHttpRequest.send()</code> method. The transmitted data is in the same format that the form's <code>submit()</code> method would use to send the data if the form's encoding type were set to <code>multipart/form-data</code>.</p>
+						</div>
+					</div>
+				</div>
+				<!--End:Note box-->
+				<p>Here's the code of our "confirmation.php" file that simply outputs the values submitted by the user.</p>
+				<!--Code box-->
+                <div class="example">
+                    <div class="codebox">
+                        <div class="codebox-title"><h4>Example</h4><a href="https://www.tutorialrepublic.com/examples/bin/download-source.php?topic=php&amp;file=confirmation" target="_top" class="download-btn" title="Download Source Code"><span>Download</span></a></div>
+                        <pre class="syntax-highlighter line-numbers language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"REQUEST_METHOD"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token double-quoted-string string">"POST"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$comment</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token double-quoted-string string">"comment"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Check if form fields values are empty</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$comment</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token double-quoted-string string">"&lt;p&gt;Hi, &lt;b&gt;<span class="token interpolation"><span class="token variable">$name</span></span>&lt;/b&gt;. Your comment has been received successfully.&lt;p&gt;"</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token double-quoted-string string">"&lt;p&gt;Here's the comment that you've entered: &lt;b&gt;<span class="token interpolation"><span class="token variable">$comment</span></span>&lt;/b&gt;&lt;/p&gt;"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token double-quoted-string string">"&lt;p&gt;Please fill all the fields in the form!&lt;/p&gt;"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">"&lt;p&gt;Something went wrong. Please try again.&lt;/p&gt;"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter important">?&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 48px;"></span><span style="height: 48px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span><span style="height: 24px;"></span></span><span class="line-numbers-sizer" style="display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<p>For security reasons, browsers do not allow you to make cross-domain Ajax requests. This means you can only make Ajax requests to URLs from the same domain as the original page, for example, if your application is running on the domain "mysite.com", you cannot make Ajax request to "othersite.com" or any other domain. This is commonly known as <em>same origin policy</em>.</p>
+				<p>However, you can load images, style sheets, JS files, and other resources from any domain.</p>
+				<!--Tip Box-->
+                <div class="color-box space">
+                    <div class="shadow">
+                        <div class="info-tab tip-icon" title="Useful Tips"><i></i></div>
+                        <div class="tip-box">
+                            <p><strong>Tip:</strong> Check out the <a href="https://www.tutorialrepublic.com/jquery-tutorial/jquery-ajax-get-and-post-requests.php">jQuery Ajax methods</a> for quick and seamless Ajax implementation. The jQuery framework provides very convenient methods to implement Ajax functionality.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End:Tip Box-->
+				<!--Bottom Navigation-->
+				<div class="bottom-link clearfix">
+                    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-cookies.php" class="previous-page-bottom">Previous Page</a>
+                    <a href="https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php" class="next-page-bottom">Next Page</a>
+                </div>
+                <!--End:Bottom Navigation--> 
+                <!-- InstanceEndEditable -->
+                <div class="bottom-ad clearfix">
+
+     <div class="ad-label">Advertisements</div>
+
+     <!--Rectangle Left-->
+     <div class="rectangle-left fl">
+          <script async="" src="./JavaScript Ajax - Tutorial Republic_files/f(4).txt"></script>
+          <!-- Large Rectangle Left -->
+          <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="8162953958" data-adsbygoogle-status="done"><div id="aswift_1_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+     </div>
+     <!--End:Rectangle Left-->
+
+     <!--Rectangle Right-->
+     <div class="rectangle-right fr">
+          <script async="" src="./JavaScript Ajax - Tutorial Republic_files/f(4).txt"></script>
+          <!-- Large Rectangle Right -->
+          <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="3324015654" data-adsbygoogle-status="done"><div id="aswift_2_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+     </div>
+     <!--End:Rectangle Right-->
+
+</div>
+
+            </div>
+            <!--End:Text Content-->
+            <!--Feedback Form-->
+			<div class="snippets">
+	<a href="https://www.tutorialrepublic.com/snippets/gallery.php" target="_blank"><img src="./JavaScript Ajax - Tutorial Republic_files/bootstrap-code-snippets.png" alt="Bootstrap UI Design Templates"></a>
+</div>            <!--End:Feedback Form-->
+        </div>        
+        <div class="rightcolumn">
+            <div class="sidebar">
+    
+    <div class="ad-label">Advertisements</div>
+
+    <div class="skyscraper primary">
+        <script async="" src="./JavaScript Ajax - Tutorial Republic_files/f(4).txt"></script>
+        <!-- Premium Skyscraper -->
+        <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="4376141825" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript Ajax - Tutorial Republic_files/ads(1).html" data-google-container-id="a!4" data-google-query-id="CJmNtaPlwfsCFYbq7QodAOUOpg" data-load-complete="true"></iframe></div></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="skyscraper">
+     <script async="" src="./JavaScript Ajax - Tutorial Republic_files/f(4).txt"></script>
+     <!-- Bottom Skyscraper -->
+     <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9107540490929984" data-ad-slot="3387984471" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_4_host" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript Ajax - Tutorial Republic_files/ads(2).html" data-google-container-id="a!5" data-google-query-id="CJuttaPlwfsCFcvg7QodkWwL3Q" data-load-complete="true"></iframe></div></ins>
+     <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+</div>
+</div>        </div>
+    </div>
+    <!--Footer-->
+	<!--Footer-->
+<div class="footer">
+    <div class="appeal">
+        <div class="wrapper">
+            <p>Is this website helpful to you? Please give us a
+            <a href="https://www.tutorialrepublic.com/like.php" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=250,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;">like</a>,
+            or share your <a href="https://www.tutorialrepublic.com/contact-us.php" target="_blank">feedback</a><em> to help us improve</em>.
+            Connect with us on <a href="https://www.facebook.com/tutorialrepublic" target="_blank">Facebook</a> and <a href="https://twitter.com/tutrepublic" target="_blank">Twitter</a> for the latest updates.</p>               
+        </div>
+    </div>
+    <div class="footer-inner">
+        <div class="wrapper clearfix">                
+            <div class="link-box">
+                <h4>About Us</h4>
+                <div class="clearfix">
+                    <a href="https://www.tutorialrepublic.com/about-us.php">Our Story</a>                    
+                    <a href="https://www.tutorialrepublic.com/terms-of-use.php">Terms of Use</a>
+                    <a href="https://www.tutorialrepublic.com/privacy-policy.php">Privacy Policy</a>                    
+                </div>
+            </div>
+            <div class="link-box">
+                <h4>Contact</h4>
+                <div class="clearfix">
+                    <a href="https://www.tutorialrepublic.com/contact-us.php">Contact Us</a>                    
+                    <a href="https://www.tutorialrepublic.com/contact-us.php" target="_blank">Report Error</a>
+                    <a href="https://www.tutorialrepublic.com/advertise-with-us.php">Advertise</a>                    
+                </div>
+            </div>
+            <div class="tool-box">
+                <h4>Interactive Tools</h4>
+                <div class="tools-list clearfix" id="tools">
+                    <a href="https://www.tutorialrepublic.com/font-awesome-icons-classes.php" target="_blank">Font Awesome Icon Search Utility</a>
+                    <a href="https://www.tutorialrepublic.com/html-formatter.php" target="_blank">HTML Formatter</a>
+                    <a href="https://www.tutorialrepublic.com/faq/what-is-the-maximum-length-of-title-and-meta-description-tag.php">Title &amp; Meta Length Calculator</a>
+                    <a href="https://www.tutorialrepublic.com/html-reference/html-color-picker.php">HTML Color Picker</a>
+                    <a href="https://www.tutorialrepublic.com/twitter-bootstrap-button-generator.php" target="_blank">Bootstrap Button Generator</a>
+                    <a href="https://www.tutorialrepublic.com/codelab.php?topic=sql&amp;file=select-all" target="_blank">SQL Playground</a>
+                    <a href="https://www.tutorialrepublic.com/bootstrap-icons-classes.php" target="_blank">Bootstrap Icon Finder</a>
+                    <a href="https://www.tutorialrepublic.com/codelab.php?topic=html&amp;file=hello-world" target="_blank">HTML Editor</a>
+                </div>
+            </div>
+            <div class="footer-logo">
+                <p><img src="./JavaScript Ajax - Tutorial Republic_files/logo.svg" alt="TutorialRepublic"></p><p>
+					</p><div>
+						<a href="https://www.buymeacoffee.com/tutrepublic" class="bmc-btn" rel="nofollow" target="_blank">
+    						<img src="./JavaScript Ajax - Tutorial Republic_files/bmc-btn.png" alt="BMC">
+						</a>
+					</div>
+            </div>
+        </div>
+    </div>           
+        <div class="bottom-strip">
+        <div class="wrapper">
+            <div class="notice">Copyright © 2022 Tutorial Republic. All Rights Reserved.</div>
+            <div class="social-media">
+                <em>Share This:</em>
+                <a href="https://facebook.com/sharer.php?u=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-ajax.php" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;" title="Facebook"><i class="icon-facebook"></i></a>
+                <a href="https://twitter.com/share?text=JavaScript%20Ajax%20-%20&amp;url=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-ajax.php" id="tweet-btn" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;su=JavaScript%20Ajax%20&amp;body=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-ajax.php" id="email-btn" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left=&#39;+((screen.width/2)-300));return false;" rel="noreferrer" title="Gmail"><i class="icon-mail"></i></a>
+            </div>
+        </div>            
+    </div>
+    <script>
+        var title = document.title.replace('- Tutorial Republic', '');
+        document.getElementById('tweet-btn').href = 'https://twitter.com/share?text=' + title + '- &url=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-ajax.php';
+        document.getElementById('email-btn').href = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + title + '&body=https://www.tutorialrepublic.com%2Fjavascript-tutorial%2Fjavascript-ajax.php';
+    </script>
+</div>
+<!--End:Footer-->
+    
+<div class="backdrop mobile-only"></div>
+
+<!-- TutorialRepublic base script -->
+<script>
+// Adding CSS files
+[	
+	'/lib/styles/legacy/extended-1.1.css',
+	'/lib/icomoon/style.css'
+].forEach(function(href) {
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.href = href;
+	(document.getElementsByTagName('head')[0]).appendChild(link);
+});
+
+// Adding JS files
+[
+	'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
+	'/lib/js/prism.js',
+	'/lib/js/default-1.3.js'
+].forEach(function(src) {
+	var script = document.createElement('script');
+	script.async = false; // important
+	script.src = src;
+	(document.getElementsByTagName('body')[0]).appendChild(script);
+});
+</script><script src="./JavaScript Ajax - Tutorial Republic_files/jquery.min.js.download"></script><script src="./JavaScript Ajax - Tutorial Republic_files/prism.js.download"></script><script src="./JavaScript Ajax - Tutorial Republic_files/default-1.3.js.download"></script>
+
+
+    <!--End:Footer-->
+
+<div style="display: none" class="ubey-RecordingScreen-count-down ubey-RecordingScreen-count-down-container">
+    <style>
+        .ubey-RecordingScreen-count-down-container {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            z-index: 9999999999999;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .ubey-RecordingScreen-count-down-content {
+            position: absolute;
+            display: flex;
+            top: 50%;
+            left: 50%;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            height: 15em;
+            width: 15em;
+            transform: translate(-50%, -100%);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+        }
+
+        #ubey-RecordingScreen-count-count {
+            font-size: 14em;
+            transform: translateY(-2%);
+        }
+    </style>
+    <div class="ubey-RecordingScreen-count-down-content">
+        <span id="ubey-RecordingScreen-count-count"></span>
+    </div>
+</div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_5_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./JavaScript Ajax - Tutorial Republic_files/ads(3).html" data-google-container-id="a!6" data-load-complete="true"></iframe></div></ins><iframe src="./JavaScript Ajax - Tutorial Republic_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><!-- InstanceEnd --><iframe id="google_esf" name="google_esf" src="./JavaScript Ajax - Tutorial Republic_files/zrt_lookup.html" style="display: none;"></iframe></html>

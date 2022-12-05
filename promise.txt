@@ -1,0 +1,3 @@
+promise.txt
+promise.race-it waits for the first promise to settle 
+and returns the result accordingly

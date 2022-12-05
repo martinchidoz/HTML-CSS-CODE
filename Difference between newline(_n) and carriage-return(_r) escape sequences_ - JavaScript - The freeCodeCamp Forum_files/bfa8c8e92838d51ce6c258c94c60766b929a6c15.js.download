@@ -1,0 +1,4 @@
+"define"in window&&define("discourse/theme-45/discourse/templates/connectors/users-top/add-nav",["exports","@ember/template-factory"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var s=(0,t.createTemplateFactory)({id:null,block:'[[[10,0],[14,0,"list-controls clearfix"],[12],[1,"\\n  "],[1,[28,[35,0],null,[["filterMode"],["users"]]]],[1,"\\n"],[13],[1,"\\n"]],[],false,["d-navigation"]]',moduleName:"discourse/theme-45/discourse/templates/connectors/users-top/add-nav",isStrictMode:!1})
+e.default=s}))

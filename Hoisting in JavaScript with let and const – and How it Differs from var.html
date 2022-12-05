@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+            <title>Hoisting in JavaScript with let and const – and How it Differs from var</title>
+        
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        
+            <link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/css2">
+        
+
+        
+        
+    <link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism.min.css">
+<noscript><link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism-1-16-0/prism.min.css"></noscript>
+<link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-unescaped-markup.css">
+<noscript><link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism-1-16-0/prism-unescaped-markup.css"></noscript>
+
+<script src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f.txt"></script><script type="text/javascript" async="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/js"></script><script type="text/javascript" async="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/analytics.js.download"></script><script src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f(1).txt" id="google_shimpl"></script><script async="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/gtm.js.download"></script><script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-unescaped-markup.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-markup-templating.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-bash.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-c.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-clojure.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-cpp.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-csharp.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-css.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-docker.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-elixir.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-erlang.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-git.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-go.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-graphql.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-haskell.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-java.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-javascript.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-json.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-jsx.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-julia.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-kotlin.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-lua.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-markup.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-php.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-python.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-r.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-ruby.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-rust.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-scala.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-sql.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-swift.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-typescript.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-yaml.min.js.download"></script>
+<script defer="" type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/prism-dart.min.js.download"></script>
+
+
+
+        
+        <link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/global-26e2f3cde9.css">
+        <link rel="stylesheet" type="text/css" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/screen-5a4f9d5c91.css">
+        <link rel="stylesheet" type="text/css" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/search-bar-124f5f949c.css">
+
+        
+        <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/algoliasearch.min.js.download"></script>
+        <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/autocomplete.min.js.download"></script>
+
+        
+        <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/dayjs.min.js.download"></script>
+        <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/localizedFormat.min.js.download"></script>
+        <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/relativeTime.min.js.download"></script>
+
+        
+        
+            <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/en.min.js.download"></script>
+        
+
+        
+        <script>let client,index;document.addEventListener("DOMContentLoaded",(()=>{client=algoliasearch("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),index=client.initIndex("news")})),document.addEventListener("DOMContentLoaded",(()=>{const e=window.screen.width,t=window.screen.height,n=e>=767&&t>=768?8:5,o=document.getElementById("search-form"),s=document.getElementById("search-input"),a=document.getElementById("dropdown-container");let i,d,c;s.addEventListener("input",(e=>{i=e.target.value})),o.addEventListener("submit",(e=>{e.preventDefault(),function(){if(d=document.getElementsByClassName("aa-cursor")[0],d&&i){const e=d.querySelector("a").href;window.location.assign(e)}else!d&&i&&c&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${i}`)}()}));const l=autocomplete("#search-input",{hint:!1,keyboardShortcuts:["s",191],openOnFocus:!0,appendTo:a,debug:!0},[{source:autocomplete.sources.hits(index,{hitsPerPage:n}),debounce:250,templates:{suggestion:e=>(c=!0,`\n            <a href="${e.url}">\n              <div class="algolia-result">\n                <span>${e._highlightResult.title.value}</span>\n              </div>\n            </a>\n          `),empty:()=>(c=!1,'\n            <div class="aa-suggestion footer-suggestion no-hits-footer">\n              <div class="algolia-result">\n                <span>\n                  No tutorials found\n                </span>\n              </div>\n            </div>\n          '),footer:e=>{if(!e.isEmpty)return`\n              <div class="aa-suggestion footer-suggestion">\n                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${i}">\n                  <div class="algolia-result algolia-footer">\n                    See all results for ${i}\n                  </div>\n                </a>\n              </div>\n            `}}}]).on("autocomplete:selected",((e,t,n,o)=>{d=t?t.url:`https://www.freecodecamp.org/news/search?query=${i}`,"click"!==o.selectionMethod&&"tabKey"!==o.selectionMethod&&c&&window.location.assign(d)}));document.addEventListener("click",(e=>{e.target!==s&&l.autocomplete.close()}))})),document.addEventListener("DOMContentLoaded",(()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")}));const isAuthenticated=document.cookie.split(";").some((e=>e.trim().startsWith("jwt_access_token="))),isDonor=document.cookie.split(";").some((e=>e.trim().startsWith("isDonor=true")));</script>
+
+        
+        
+    
+        <script data-ad-client="ca-pub-9482786369113753" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f(2).txt" crossorigin="anonymous" async="" data-checked-head="true"></script>
+        <script data-test-label="toggle-ad-layout" defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/toggle-ad-layout-099254b065.js.download"></script>
+    
+
+
+        
+        
+    <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/fitvids-5d12072cbf.js.download"></script>
+    
+    <script>document.addEventListener("DOMContentLoaded",(()=>{const t=document.querySelector(".post-full-content");t&&fitVids(t)}));</script>
+
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <link rel="amphtml" href="https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/amp/">
+    <meta name="description" content="I used to think that hoisting only happened to variables declared with var. But recently, I learned that it also happens to variables declared with let and  const. I&#39;ll explain what I mean in this article. I also have a video version of this article [https://www.youtube.com/watch?v=VbHaL_J8Ex0] you can check">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Hoisting in JavaScript with let and const – and How it Differs from var">
+    
+        <meta property="og:description" content="I used to think that hoisting only happened to variables declared with var. But recently, I learned that it also happens to variables declared with let and  const. I&#39;ll explain what I mean in this article. I also have a video version of this article [https://www.youtube.com/watch?v=VbHaL_J8Ex0] you can check">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2022/11/5.-let-const-hoisting.png">
+    <meta property="article:published_time" content="2022-11-18T23:33:20.000Z">
+    <meta property="article:modified_time" content="2022-11-18T23:33:27.000Z">
+    
+        <meta property="article:tag" content="JavaScript">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hoisting in JavaScript with let and const – and How it Differs from var">
+    
+        <meta name="twitter:description" content="I used to think that hoisting only happened to variables declared with var. But recently, I learned that it also happens to variables declared with let and  const. I&#39;ll explain what I mean in this article. I also have a video version of this article [https://www.youtube.com/watch?v=VbHaL_J8Ex0] you can check">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2022/11/5.-let-const-hoisting.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dillion Megida">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="JavaScript">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@iamdillion">
+    
+
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1333">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.freecodecamp.org/news/content/images/2022/11/5.-let-const-hoisting.png",
+		"width": 2000,
+		"height": 1333
+	},
+	"url": "https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2022-11-18T23:33:20.000Z",
+	"dateModified": "2022-11-18T23:33:27.000Z",
+	"keywords": "JavaScript",
+	"description": "I used to think that hoisting only happened to variables declared with var. But\nrecently, I learned that it also happens to variables declared with let and \nconst.\n\nI&#x27;ll explain what I mean in this article.\n\nI also have a video version of this article\n[https://www.youtube.com/watch?v&#x3D;VbHaL_J8Ex0] you can check out if you&#x27;re\ninterested.\n\nHow Hoisting Works with var in JavaScript\nHere&#x27;s how hoisting works on variables declared with var:\n\nconsole.log(number)\n// undefined\n\nvar number &#x3D; 10\n\nconsole.l",
+	"headline": "Hoisting in JavaScript with let and const – and How it Differs from var",
+	"author": {
+		"@type": "Person",
+		"name": "Dillion Megida",
+		"url": "https://www.freecodecamp.org/news/author/dillionmegida/",
+		"sameAs": [
+			"https://dillionmegida.com",
+			"https://twitter.com/iamdillion"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://www.freecodecamp.org/news/content/images/2022/03/deee.jpg",
+			"width": 2000,
+			"height": 2000
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com/">
+
+<!-- Web Monetization (https://webmonetization.org/) -->
+<meta name="monetization" content="$ilp.uphold.com/LJmbPn7WD4JB">
+<!-- end Web Monetization -->
+
+<!-- dataLayer setup -->
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>
+<!-- End dataLayer setup -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+<!-- End Google Tag Manager -->
+
+
+<meta name="google-site-verification" content="b4tITLzEeeZGEpvD4mGNf3khKM4fvqejQaz9SYBQP8E">
+
+        
+    <meta http-equiv="origin-trial" content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><style id="fit-vids-style">.fluid-width-video-container{flex-grow: 1;width:100%;}.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preload" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f(3).txt" as="script"><script type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f(3).txt"></script><link rel="preload" href="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f(4).txt" as="script"><script type="text/javascript" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/f(4).txt"></script></head>
+    
+    
+        <body class="home-template">
+    
+        <div class="site-wrapper" style="height: auto !important; min-height: 0px !important;">
+            <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        <form id="search-form" data-test-label="search-bar">
+  <div role="search" class="searchbox__wrapper">
+    <label class="fcc_sr_only" for="search-input">
+      Search
+    </label>
+    <input type="search" placeholder="Search 9,000+ tutorials" id="search-input" class="aa-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style=""><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+    <button type="submit" class="ais-SearchBox-submit">
+      <svg class="ais-SearchBox-submitIcon" xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+    <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+</svg>
+
+      <span class="fcc_sr_only">Submit your search query</span>
+    </button>
+    <div id="dropdown-container"><span class="algolia-autocomplete" style="position: absolute; z-index: 100; display: none; direction: ltr;"><span class="aa-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="display: block; left: 0px; right: auto;"><div class="aa-dataset-1"></div></span></span></div>
+  </div>
+</form>
+
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news" data-test-label="site-nav-logo"><img src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/fcc_primary.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <a class="nav-forum" id="nav-forum" rel="noopener noreferrer" href="https://forum.freecodecamp.org/" target="_blank" data-test-label="forum-button">Forum</a>
+            <a class="toggle-button-nav" id="nav-donate" rel="noopener noreferrer" href="https://www.freecodecamp.org/donate/" target="_blank" data-test-label="donate-button">Donate</a>
+        </div>
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank" href="https://www.freecodecamp.org/" text-variation="default">
+    <p id="banner-text">Learn to code — <span>free 3,000-hour curriculum</span></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");isAuthenticated?(t.innerHTML="Support our nonprofit and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href="https://www.freecodecamp.org/donate",e.setAttribute("text-variation","authenticated")):isDonor?(t.innerHTML="Thank you for supporting freeCodeCamp through <span>your donations</span>.",e.href="https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/",e.setAttribute("text-variation","donor")):(t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default"))}));</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer" style="height: auto !important;">
+        <div class="inner ad-layout" style="height: auto !important;">
+            <article class="post-full post " style="height: auto !important;">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" datetime="Fri Nov 18 2022 23:33:20 GMT+0000 (Coordinated Universal Time)">
+                            November 18, 2022
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a dir="ltr" href="https://www.freecodecamp.org/news/tag/javascript/">
+                                #JavaScript
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title">Hoisting in JavaScript with let and const – and How it Differs from var</h1>
+                </header>
+                <div class="post-full-author-header" data-test-label="author-header-no-bio">
+                    
+                        
+                            
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img srcset="https://www.freecodecamp.org/news/content/images/size/w60/2022/03/deee.jpg 60w" sizes="60px" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/deee.jpg" class="author-profile-image" alt="Dillion Megida" width="2000" height="2000" onerror="this.style.display=&#39;none&#39;" data-test-label="profile-image">
+  
+        
+
+        <section class="author-card-content author-card-content-no-bio">
+            <span class="author-card-name">
+                <a href="https://www.freecodecamp.org/news/author/dillionmegida/" data-test-label="profile-link">
+                    
+                        Dillion Megida
+                    
+                </a>
+            </span>
+            
+        </section>
+    </section>
+
+                        
+                    
+                </div>
+                
+                    <figure class="post-full-image">
+                        
+    <picture>
+      <source media="(max-width: 700px)" sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+      <source media="(min-width: 701px)" sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px" srcset="https://www.freecodecamp.org/news/content/images/size/w300/2022/11/5.-let-const-hoisting.png 300w,https://www.freecodecamp.org/news/content/images/size/w600/2022/11/5.-let-const-hoisting.png 600w,https://www.freecodecamp.org/news/content/images/size/w1000/2022/11/5.-let-const-hoisting.png 1000w,https://www.freecodecamp.org/news/content/images/size/w2000/2022/11/5.-let-const-hoisting.png 2000w">
+      <img onerror="this.style.display=&#39;none&#39;" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/5.-let-const-hoisting.png" alt="Hoisting in JavaScript with let and const – and How it Differs from var" ,="" width="2000" height="1333">
+    </picture>
+  
+                    </figure>
+                
+                <section class="post-full-content" style="height: auto !important; min-height: 0px !important;">
+                    <div class="post-and-sidebar" style="height: auto !important;">
+                        <section class="post-content ">
+                            
+<p>I used to think that hoisting only happened to variables declared with <code>var</code>. But recently, I learned that it also happens to variables declared with <code>let</code> and <code>const</code>.</p>
+<p>I'll explain what I mean in this article.</p>
+<p>I also have a <a href="https://www.youtube.com/watch?v=VbHaL_J8Ex0">video version of this article</a> you can check out if you're interested.</p>
+<h2 id="howhoistingworkswithvarinjavascript">How Hoisting Works with <code>var</code> in JavaScript</h2>
+<p>Here's how hoisting works on variables declared with <code>var</code>:</p>
+<pre class=" language-js"><code class=" language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+<span class="token comment">// undefined</span>
+
+<span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">10</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+<span class="token comment">// 10</span>
+</code></pre>
+<p>The <code>number</code> variable is hoisted to the top of the global scope. This makes it possible to access the variable before the line it was declared, without errors.</p>
+<p>But what you'll notice here is that only the variable declaration (<code>var number</code>) is hoisted – the initialization (<code>= 10</code>) isn't. So when you try to access <code>number</code> before it is declared, you get the <strong>default initialization that happens with var</strong> which is <code>undefined</code>.</p>
+<p>Then, the declaration and initialization line is executed, so accessing <code>number</code> after that returns the initialized value, <strong>10</strong>.</p>
+<h2 id="howhoistingworkswithletconstinjavascript">How Hoisting Works with let/const in JavaScript</h2>
+<p>If you try to do the same thing as above with <code>let</code> or <code>const</code>, here's what happens:</p>
+<pre class=" language-js"><code class=" language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token comment">// or const number = 10</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+</code></pre>
+<p>You get an error that says: <strong>ReferenceError: Cannot access 'number' before initialization</strong>.</p>
+<p>So you can access a variable declared with var before declaration without errors, but you cannot do the same with <code>let</code> or <code>const</code>.</p>
+<p>This why I had always thought that hoisting only happens with var, it doesn't happen with let or const.</p>
+<p>But as I said, I learned recently that variables declared with <code>let</code> or <code>const</code> are also hoisted. Let me explain.</p>
+<p>Take a look at this example:</p>
+<pre class=" language-js"><code class=" language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number2<span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">10</span>
+</code></pre>
+<p>I log a variable called <code>number2</code> to the console, and I declare and initialize a variable called <code>number</code>.</p>
+<p>Running this code produces this error: <strong>ReferenceError: number2 is not defined</strong></p>
+<p>What do you notice between the previous error and this error? The previous error says <strong>ReferenceError: Cannot access 'number' before initialization</strong> while this new error says <strong>ReferenceError: number2 is not defined</strong>.</p>
+<p>Here's the difference. The former says "cannot access before initialization" while the latter says "is not defined".</p>
+<p>What the latter means is that JavaScript has no idea what the <code>number2</code> variable is because it is not defined – and indeed we didn't define it. We only defined <code>number</code>.</p>
+<p>But the former doesn't say "is not defined", instead it says, "cannot access before initialization". Here's the code again:</p>
+<pre class=" language-js"><code class=" language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+<span class="token comment">// ReferenceError: Cannot access 'number' before initialization</span>
+
+<span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">10</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+</code></pre>
+<p>This means that JavaScript "knows" about the <code>number</code> variable. How does it know? Because <code>number</code> is hoisted to the top of the global scope.</p>
+<p>But why does an error occur? Well, this clarifies the difference between the hoisting behavior with <code>var</code> and <code>let</code>/<code>const</code>.</p>
+<p>Variables declared with <code>let</code> or <code>const</code> are <strong>hoisted WITHOUT a default initialization</strong>. So accessing them before the line they were declared throws <strong>ReferenceError: Cannot access 'variable' before initialization</strong>.</p>
+<p>But variables declared with <code>var</code> are <strong>hoisted WITH a default initialization of undefined</strong>. So accessing them before the line they were declared returns <code>undefined</code>.</p>
+<h2 id="temporaldeadzone">Temporal Dead Zone</h2>
+<p>There's a name for the period during execution where <code>let</code>/<code>const</code> variables are hoisted but not accessible: it's called the <strong>Temporal Dead Zone</strong>.</p>
+<p>Again, the code from above:</p>
+<pre class=" language-js"><code class=" language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">10</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+</code></pre>
+<p>The <code>number</code> variable is in a temporal dead zone where JavaScript knows of its existence (because its declaration is hoisted) but it's not accessible (as it doesn't have an initialization).</p>
+<h2 id="wrappingup">Wrapping Up</h2>
+<p>If you were like me, and you thought that hoisting only applies with <code>var</code> and not <code>let</code>/<code>const</code>, I hope this article clears up that false assumption.</p>
+<p>As I've explained in this article, <code>let</code> and <code>const</code> variables are hoisted, only they are hoisted without a default initialization. This makes them inaccessible (as such variables are in a temporal dead zone).</p>
+<p>Variables declared with <code>var</code>, on the other hand, are hoisted with a default initialization of <code>undefined</code>.</p>
+<p>I hope you learned something from this article :)</p>
+<!--kg-card-end: markdown-->
+
+                        </section>
+                        
+                            <div class="sidebar" style="height: auto !important;">
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper" style="height: auto !important; min-height: 0px !important;">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-9482786369113753" data-ad-slot="5720086888" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/ads.html" data-google-container-id="a!2" data-google-query-id="CL3eye7yvvsCFcfS3godbKYIvQ" data-load-complete="true"></iframe></div></ins>
+    <script>
+        if (!isAuthenticated) (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper" style="height: auto !important; min-height: 0px !important;">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-9482786369113753" data-ad-slot="5720086888" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/ads(1).html" data-google-container-id="a!3" data-google-query-id="CNPV3PTyvvsCFWZB9ggdHo4LMw" data-load-complete="true"></iframe></div></ins>
+    <script>
+        if (!isAuthenticated) (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper" style="height: auto !important; min-height: 0px !important;">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-9482786369113753" data-ad-slot="5720086888" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-9482786369113753&amp;output=html&amp;h=600&amp;slotname=5720086888&amp;adk=3402239630&amp;adf=1381186122&amp;pi=t.ma~as.5720086888&amp;w=300&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1669020838&amp;rafmt=1&amp;format=300x600&amp;url=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fjavascript-let-and-const-hoisting%2F&amp;fwr=0&amp;fwrattr=true&amp;rh=280&amp;rpe=1&amp;resp_fmts=4&amp;wgl=1&amp;adsid=ChAIgODsmwYQqYbdrYr01Z0jEj0A52_TKeKYo6MKeokj6EdY5sMEk_rGM3GKHNvHIdlLag6X9Jt7Q5ZgsRNQJu5vULXwE2B099eeh1NsJweD&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTA3LjAuNTMwNC4xMDciLFtdLGZhbHNlLG51bGwsIjY0IixbWyJHb29nbGUgQ2hyb21lIiwiMTA3LjAuNTMwNC4xMDciXSxbIkNocm9taXVtIiwiMTA3LjAuNTMwNC4xMDciXSxbIk5vdD1BP0JyYW5kIiwiMjQuMC4wLjAiXV0sZmFsc2Vd&amp;dt=1669020763451&amp;bpp=3&amp;bdt=230&amp;idt=354&amp;shv=r20221110&amp;mjsv=m202211100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D459a5c9f17db7d62-22218ffaf2d50028%3AT%3D1665243807%3ART%3D1665243807%3AS%3DALNI_MZtok3iBGFtACcZW_xRznO0YlBwdQ&amp;gpic=UID%3D00000b07b9fb4948%3AT%3D1665243807%3ART%3D1669020540%3AS%3DALNI_Mab3yG0pcYIcPFqqKD8-9IQUQfkKw&amp;prev_fmts=0x0%2C300x600%2C300x600&amp;nras=1&amp;correlator=7332517704646&amp;frm=20&amp;pv=1&amp;ga_vid=2009928304.1665243805&amp;ga_sid=1669020764&amp;ga_hid=1341839390&amp;ga_fc=1&amp;u_tz=60&amp;u_his=4&amp;u_h=720&amp;u_w=1280&amp;u_ah=680&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1.5&amp;dmc=8&amp;adx=862&amp;ady=5325&amp;biw=1263&amp;bih=520&amp;scr_x=0&amp;scr_y=3338&amp;eid=44759875%2C44759926%2C44759837%2C44773809%2C42531705%2C44774292%2C31070950&amp;oid=2&amp;psts=AMjMPc3UIEWmv7VWdRiwM-OeAlJbIbRgi-9Fd0yOLGM0KRZ54cbpfv8Ov-K679MZdPt6rt8Nx3ZlgU3IRCMim0U%2CAMjMPc1w-fz0gb48iNNa-xlO0kRaXr6SFrDKaDD-1JQRLRIvC2nYEWcl4SgPl4zmioDLl3g0TAcXT49AMKfTNJs&amp;pvsid=113813842307446&amp;tmod=447347251&amp;uas=3&amp;nvt=1&amp;ref=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fjavascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them%2F&amp;eae=0&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C680%2C1280%2C520&amp;vis=1&amp;rsz=%7C%7CeEbr%7C&amp;abl=CS&amp;pfx=0&amp;fu=128&amp;bc=31&amp;jar=2022-11-21-08&amp;ifi=4&amp;uci=a!4&amp;btvi=3&amp;fsb=1&amp;xpc=B0glnOOJDB&amp;p=https%3A//www.freecodecamp.org&amp;dtd=75398" data-google-container-id="a!4" data-google-query-id="CK2WtpLzvvsCFQPA5godT4YD4w" data-load-complete="true"></iframe></div></ins>
+    <script>
+        if (!isAuthenticated) (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                            </div>
+                        
+                    </div>
+                    <hr>
+                    
+                        <div class="post-full-author-header" data-test-label="author-header-with-bio">
+                            
+                                
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img srcset="https://www.freecodecamp.org/news/content/images/size/w60/2022/03/deee.jpg 60w" sizes="60px" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/deee.jpg" class="author-profile-image" alt="Dillion Megida" width="2000" height="2000" onerror="this.style.display=&#39;none&#39;" loading="lazy" data-test-label="profile-image">
+  
+        
+
+        <section class="author-card-content ">
+            <span class="author-card-name">
+                <a href="https://www.freecodecamp.org/news/author/dillionmegida/" data-test-label="profile-link">
+                    
+                        Dillion Megida
+                    
+                </a>
+            </span>
+            
+                
+                    <p data-test-label="author-bio">Developer Advocate and Content Creator passionate about sharing my knowledge on Tech. I teach JavaScript / ReactJS / NodeJS / React Frameworks / TypeScript / et al</p>
+                
+            
+        </section>
+    </section>
+
+                            
+                        </div>
+                        <hr>
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, tweet to the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button" onclick="window.open(
+    &#39;https://twitter.com/intent/tweet?text=Thank%20you%20%40iamdillion%20for%20writing%20this%20helpful%20article.%0A%0AHoisting%20in%20JavaScript%20with%20let%20and%20const%20%E2%80%93%20and%20How%20it%20Differs%20from%20var%0A%0Ahttps://www.freecodecamp.org/news/javascript-let-and-const-hoisting/&#39;,
+    &#39;share-twitter&#39;,
+    &#39;width=550, height=235&#39;
+  ); return false;">Tweet a thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",(()=>{const t=document.getElementById("tweet-btn"),e=window.location,n="Hoisting%20in%20JavaScript%20with%20let%20and%20const%20%E2%80%93%20and%20How%20it%20Differs%20from%20var".replace(/&#39;/g,"%27"),o="",i="@iamdillion",r=Boolean("");let a;if(r&&(o||i)){const t={originalPostAuthor:"",currentPostAuthor:"Dillion Megida"};a=encodeURIComponent(`Thank you ${o||t.originalPostAuthor} for writing this helpful article, and ${i||t.currentPostAuthor} for translating it.`)}else!r&&i&&(a=encodeURIComponent(`Thank you ${i} for writing this helpful article.`));const l=`window.open(\n    '${a?`https://twitter.com/intent/tweet?text=${a}%0A%0A${n}%0A%0A${e}`:`https://twitter.com/intent/tweet?text=${n}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",l)}));</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn/" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad bottom">
+                        <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-9482786369113753" data-ad-slot="5720086888" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><div id="aswift_4_host" style="border: none; height: 280px; width: 1060px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+    <script>
+        if (!isAuthenticated) (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-desc-col">
+                <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) nonprofit organization (United States Federal Tax Identification Number: 82-0779546)</p>
+                <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public. We also have thousands of freeCodeCamp study groups around the world.</p>
+                <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+                <p class="footer-donation" data-test-label="donate-text">
+                    You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+                </p>
+            </div>
+            <div class="trending-guides" data-test-label="trending-guides">
+                <div class="col-header">Trending Guides</div>
+                <div class="trending-guides-row">
+                    <div class="footer-col footer-col-1">
+                        <a href="https://www.freecodecamp.org/news/python-comment-block-how-to-comment-out-code-in-python/" rel="noopener noreferrer" target="_blank">Python Comment Block
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-code-examples-simple-python-program-example/" rel="noopener noreferrer" target="_blank">Python Code Examples
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/types-of-hard-drives-sata-pata-scsi-and-more-2/" rel="noopener noreferrer" target="_blank">Types of Hard Drives
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-list-remove-how-to-remove-an-item-from-a-list-in-python/" rel="noopener noreferrer" target="_blank">Python List .remove()
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-concatenate-strings-how-to-combine-and-append-strings-in-python/" rel="noopener noreferrer" target="_blank">Python Concat Strings
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/pip-command-not-found-mac-and-linux-error-solved/" rel="noopener noreferrer" target="_blank">pip Command Not Found
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-sort-how-to-sort-a-list-in-python/" rel="noopener noreferrer" target="_blank">Sort a List in Python
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/502-bad-gateway-error-solved/" rel="noopener noreferrer" target="_blank">502 Bad Gateway Error
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/how-to-resize-an-image-without-losing-quality/" rel="noopener noreferrer" target="_blank">Resize Image Tutorial
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-compare-strings-how-to-check-for-string-equality/" rel="noopener noreferrer" target="_blank">Python Compare Strings
+                        </a>
+                    </div>
+                    <div class="footer-col footer-col-2">
+                        <a href="https://www.freecodecamp.org/news/python-sleep-time-sleep-in-python/" rel="noopener noreferrer" target="_blank">Python Sleep
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/http-error-504-gateway-timeout-status-code-explained/" rel="noopener noreferrer" target="_blank">HTTP Error 504
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/git-undo-merge-how-to-revert-the-last-merge-commit-in-git/" rel="noopener noreferrer" target="_blank">Git Undo Merge
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/how-to-get-the-current-time-in-python-with-datetime/" rel="noopener noreferrer" target="_blank">Python Datetime
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/comment-out-html-code-example/" rel="noopener noreferrer" target="_blank">Comment Out HTML
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/else-if-in-python-python-if-statement-example-syntax/" rel="noopener noreferrer" target="_blank">Else-If in Python
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/design-principles-a-list-of-the-principles-of-design/" rel="noopener noreferrer" target="_blank">Design Principles
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/sql-contains-string-sql-regex-example-query/" rel="noopener noreferrer" target="_blank">SQL Contains String
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/extern-keyword-function-tutorial/" rel="noopener noreferrer" target="_blank">Extern in C and C++
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/frontend-vs-backend-whats-the-difference/" rel="noopener noreferrer" target="_blank">Frontend vs Backend
+                        </a>
+                    </div>
+                    <div class="footer-col footer-col-3">
+                        <div class="footer-left">
+                            <a href="https://www.freecodecamp.org/news/how-to-send-large-video-files-share-a-big-file-with-email/" rel="noopener noreferrer" target="_blank">Send Large Video Files
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/create-a-dictionary-in-python-python-dict-methods/" rel="noopener noreferrer" target="_blank">Create a Dict in Python
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/create-a-list-in-python-lists-in-python-syntax/" rel="noopener noreferrer" target="_blank">Create a List in Python
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/python-break-and-python-continue-how-to-skip-to-the-next-function/" rel="noopener noreferrer" target="_blank">Python Break &amp; Continue
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/python-multiline-comment-how-to-comment-out-multiple-lines-in-python/" rel="noopener noreferrer" target="_blank">Python Multiline Comment
+                            </a>
+                        </div>
+
+                        <div class="footer-right">
+                            <a href="https://www.freecodecamp.org/news/what-is-a-full-stack-developer-full-stack-engineer-guide/" rel="noopener noreferrer" target="_blank">What’s a Full Stack Dev?
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/how-to-flush-dns-on-mac-macos-clear-dns-cache/" rel="noopener noreferrer" target="_blank">How to Flush DNS on a Mac
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/how-to-remove-duplicates-in-excel-delete-duplicate-rows-tutorial/" rel="noopener noreferrer" target="_blank">Remove Duplicates in Excel
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/how-to-do-a-hanging-indent-in-google-docs/" rel="noopener noreferrer" target="_blank">Hanging Indent Google Docs
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/remote-work-how-to-find-remote-working-jobs-from-home/" rel="noopener noreferrer" target="_blank">How to Find Remote Jobs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="col-header" data-test-label="our-nonprofit">Our Nonprofit</div>
+            <div class="footer-divider"></div>
+            <div class="our-nonprofit">
+                <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                    About
+                </a>
+                <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                    Alumni Network
+                </a>
+                <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                    Open Source
+                </a>
+                <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                    Shop
+                </a>
+                <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                    Support
+                </a>
+                <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                    Sponsors
+                </a>
+                <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                    Academic Honesty
+                </a>
+                <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                    Code of Conduct
+                </a>
+                <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                    Privacy Policy
+                </a>
+                <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                    Terms of Service
+                </a>
+                <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                    Copyright Policy
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        </div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/ads(2).html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins>
+
+        
+        
+        
+
+        <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        
+    <script defer="" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;76d830dfa813b7b4&quot;,&quot;token&quot;:&quot;bdb993c6dde44e178aabd9555e75e4f4&quot;,&quot;version&quot;:&quot;2022.11.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+
+<div style="display: none" class="ubey-RecordingScreen-count-down ubey-RecordingScreen-count-down-container">
+    <style>
+        .ubey-RecordingScreen-count-down-container {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            z-index: 9999999999999;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .ubey-RecordingScreen-count-down-content {
+            position: absolute;
+            display: flex;
+            top: 50%;
+            left: 50%;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            height: 15em;
+            width: 15em;
+            transform: translate(-50%, -100%);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+        }
+
+        #ubey-RecordingScreen-count-count {
+            font-size: 14em;
+            transform: translateY(-2%);
+        }
+    </style>
+    <div class="ubey-RecordingScreen-count-down-content">
+        <span id="ubey-RecordingScreen-count-count"></span>
+    </div>
+</div><iframe src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./Hoisting in JavaScript with let and const – and How it Differs from var_files/zrt_lookup.html" style="display: none;"></iframe></html>

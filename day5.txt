@@ -1,0 +1,314 @@
+/*function calc(){
+  alert(8*9)
+ }
+ calc()*/
+/* function good(){
+    alert("you are good!!!")
+  }
+  good()
+  */
+/*
+  function  Add(){
+    alert(2+10)
+  }
+Add()*/
+/*
+function good(){
+  return 2*7
+}
+console.log (good())
+*/
+/*
+function good(){
+  return console.log("my name is dozie")
+}
+console.log(good())
+*/
+/* NAME PARAMETER
+function good(a , b ,c) {
+  return console.log(a*b*c)
+}
+good(2 ,5,6)
+good(3, 7,9)
+good(8 ,4 ,5)*/ /*
+ function good(name, skin,age){
+  return console.log(name +skin +age)
+ }
+ good("martin ", "fair",25)
+ good(3 ,7 ,9)
+ good(martins,4 ,5)*/
+
+/*
+ function AreaOfCircle(r){
+  return console.log(3.142 *r *r)
+ }
+ AreaOfCircle(5)*/
+/* 
+ function AreaOfCircle(r){
+  return console.log(Math.PI * Math.pow(r,2))
+ }
+ AreaOfCircle(5)
+ AreaOfCircle(7)
+*/
+/*
+function toCelsius(f){
+  return console.log((5/9)*(f-32));
+} 
+ toCelsius(212)*/
+/*
+default parameter
+ function c2f(c=11){
+  return console.log(9/5 *c +32)
+ }
+ c2f(7)*/
+/*
+ var  a=56;
+ function c2f(c=11){
+  var b =78
+  return console.log(b)
+ }
+ c2f
+ console.log(b)*/
+/*
+ //program to solve quadratic equation
+ let root1,root2;
+ //take input from the user
+ let a = prompt("Enter the first number:");
+ let b = prompt("Eter the second number:");
+ let c = prompt("Enter the third number:");
+ // calculate discriminant
+ let discriminant= b*b -4 *a*c;
+ //condition for real and different roots
+ if (discriminant>0){
+  root1=(-b + Math.sqrt(discriminant))/(2*a);
+  root2=(-b -Math.sqrt(discriminant)) /(2*a);
+  // result
+  console.log(`the roots of quadratic equation are ${root1} and ${root2}`);
+ }
+ //condition for real and equal roots
+ else if (discriminant==0){
+  root1=root2=-b/(2*a);
+  //result
+  console.log('the roots are')
+ }
+ //if roots are not real
+ else{let realPart=(-b/(2*a)).toFixed(2);
+     let imagepart= (Math.sqrt(-discriminant)/(2*a)).toFixed(2);
+    //result
+   console.log('the roots of are $(real part) + $(imaginary) '
+    
+   );
+  } 
+  /*
+ function handleClick(){
+  alert("you click me!!!")
+ }
+ function handleDblClick(){
+  alert("you doubleclick me")
+ }
+ /*
+ function testover(){
+  alert("you hover")
+ }
+ function testleave(){
+  alert("you leave")
+ }*/
+/*
+ function handleChange(value){
+  alert(value)
+ }
+ /*
+ document.getElementById("searchid")
+ document.getElementByClassname("")
+ document.getElementByTagName()
+ document.getElemnetByNAME()
+ document.getElementsBySelector()
+ document.getElementBySelector
+ */
+
+/*const selector =document.getElementById("searchid")
+ const selector =document.getElementByName("myname")
+
+ const selector  =document.getElementsByClassName("test")
+ const selector  =document.querySelector("#search")
+
+ console.log(selector)
+ */ /*
+  function calc(a,b){
+    return a * b
+  }
+  var a = 6
+  console.log(calc(2,4))
+  console.log(calc(4,7))
+  console.log(calc(86,5))
+
+ 
+  //write algorithm to solve ax2 +bx +c in which a,b as 3 ,5 as default value respectively
+  var x=prompt ("enter value for x");
+  var c=prompt ("enter value for c")
+  function calc(x,c){
+    return 3 * (x**2) +5 *x+c
+  }
+  alert (calc(3,5))*/
+
+//var a=document.getElementByClassname("test")
+//console.log(a)
+//document.getElemenetById("test").onclick= function() {
+// alert("you click me")
+// }
+/*
+ var namepattern =/[^0-9][a-z]{3,}/ig
+var emailpattern =/[\w]{3,}\@[a-z]{3,}\.[a-z]{2,}/ig
+var pwdpattern=/[a-z0-9]{6,}/ig
+ function handlesubmit(){
+  var name = document.getElementById("myname").value
+ 
+ var email = document.getElementById("myemail").value
+ var password = document.getElementById("mypwd").value
+ console.log(name, email , password)
+ if(name === "" || email === "" || password === ""){
+  alert("input field cannot be empty");
+ }else if(!namepattern.test(name)){
+ alert("enter valid name");
+ }else if (!emailpattern.test(email)){
+  alert("enter valid email");
+ }else if (!pwdpattern.test(password)){
+  alert("enter valid password")
+}else {
+  alert("registration successful")
+}
+}
+ /*setInterval(function(){
+  alert("interacting with browser in 5s")
+},5000)
+ var ref = setInterval(function(){
+  alert("interacting with browser in 5s")
+},5000)*/
+//setTimeout(function(){
+// alert("this is a timeout")
+//},5000)
+/*const ref =window.open("https://nytimes.com")
+ 
+function handleclick(){
+//clearTimeout(ref)
+ //}
+ window.closed()
+//}
+
+/*function validate(){
+  var regName =/^[a-zA-z][A-Za-z0-9]{7 ,29}/;
+  var name =document.getElementById('name').value;
+  if(!regName.test(name))
+  {
+    alert('Please enter your full name(first & last name).');
+    document.getElementById('name').focus();
+  
+   return false;}
+   else{
+    alert("valid name given.");
+    return true;
+   }
+  }*/
+// GeolocationPosition
+
+/* navigator.geolocation.getcurrentposition(locationSuccess);
+  //callback invoked when location data is fetched
+  function locationSuccess(position){
+    var details = position.coords;
+    //fetches lattitude
+  
+  console.log("Latitude:" + details.latitude);
+  //fetches longitude
+  console.log("Longitude:" + details.longitude);
+  // fetches accuracy of location(in metres)
+  console.log("Accuracy:" + details.accuracy);
+  }
+  
+  
+  var google_maps_geocoder = new google.maps.Geocoder();
+  google_maps_geocoder.geocode(
+    { 'latLng' : google_map_pos },
+    function( results, status ) {
+      console.log( results ) ;
+    }
+  );
+  
+
+console.log(window.history)
+function handleclick(){
+//clear Timeout(ref)
+window.close}
+function moveBack(){
+  alert("you click left arrow")
+}
+function moveForward(){
+  window.history.go()
+}
+//alert(window.location.origin)
+
+window.location.href= "/test.html" */
+//alert(window.navigator.onLine)
+/*window.navigator.geolocation.getCurrentPosition(onsuccess,onerror, {enablehighaccuracy: true})
+function onsuccess(position){
+     console.log(position.coords.lattitude)
+     console.log(position.coords.longitude)
+     
+
+}function onerror(e){
+  console.log(e)
+}
+document.head.children[3].innerHTML="Hello world"
+console.log(document.title)*/
+/*document.body.onload = addElement;
+function addElement() {
+  //create a new div element
+  const newDiv = document.createElement("div");
+  //and give it some content
+  const newContent = document.createTextNode("Hi there and greetings!");
+  //add the text node to the newly created div
+  newDiv.appendChild(newContent);
+  //add the newly created element and its content into the DOM
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
+}*/
+/*var div =document.getElementById("target");
+div.innerHTML ="<p> This is a paragraph</p><p>this is a second</p>";
+
+window.onload=function(){
+  document.getElementById("div1").onclick=addDiv;
+}
+function addDiv(){
+  //get parent 
+  var parent=this.parentNode;
+  //create new div
+  var newDiv = document.createElement("div");
+  newDiv.className = "divclass";
+  newDiv.innerHTML = "<p>I'm here, I'm in the page</p>";
+  //add to page
+  parent.insertBefore(newDiv,this);
+}*/
+//to add new element to end of webpage
+/*var bdy =document.getElementsByTagName("body")[0];//body element
+var newDiv =document.createElement("div");
+//append to body
+bdy.appendChild(newDiv);*/
+/* class Main{
+  public static void main(string args[]) 
+  {
+ const [] = [1 , 3, 4, 2, 0];
+  maxValue =Integer.MIN_VALUE;
+ //ITERATING OVER ARRAY AND UPDATING MAXVALUE
+ for ( i =0; i<arr.length; ++i){
+  maxValue=Math.max(maxValue, arr[i]);
+ }
+ alert.(maxValue);// maxValue =4
+  }
+ }*/
+ document.head.children[3].innerHTML="Hello world"
+ var newElement=document.createElement("hi")//<hi><hi>
+ newElement.innerHTML="this is the hi we create programmatically"//<hi>this is the hi we create programmatically<hi>
+ 
+
+ document.head.append(newElement)
+ console.log(document.head.children)
+    var header =document.getElementById("header")

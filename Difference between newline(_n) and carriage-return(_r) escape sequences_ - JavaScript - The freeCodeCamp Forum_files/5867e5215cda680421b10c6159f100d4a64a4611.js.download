@@ -1,0 +1,7 @@
+"define"in window&&define("discourse/theme-45/pre-initializers/theme-45-translations",["exports"],(function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var t={name:"theme-45-translations",initialize(){const e={en:{users_nav:{display_name:"Leaderboard",title:"Leaderboard"}}}
+for(let t in e){let i=I18n.translations
+for(let e of[t,"js","theme_translations"])i=i[e]=i[e]||{}
+i[45]=e[t]}}}
+e.default=t}))

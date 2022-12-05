@@ -1,0 +1,6 @@
+"define"in window&&define("discourse/theme-45/initializers/theme-field-123-common-html-script-1",["exports","discourse/lib/plugin-api"],(function(e,i){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+require("discourse/lib/theme-settings-store").getObjectForTheme(45)
+const t=e=>"theme_translations.45.".concat(e)
+var s={name:"theme-field-123-common-html-script-1",after:"inject-objects",initialize(){(0,i.withPluginApi)("0.8",(e=>{e.addNavigationBarItem({name:"users",href:"/u",title:I18n.t(t("users_nav.title")),displayName:I18n.t(t("users_nav.display_name"))})}))}}
+e.default=s}))

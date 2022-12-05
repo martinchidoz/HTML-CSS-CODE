@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --greencolor: #3db83a;
+  --orangecolor: #e18700;
+}
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--greencolor);
+  align-items: right;
+  margin-bottom: 1px;
+  box-shadow: 0px 0px 5px #999999;
+}
+
+.links {
+  display: flex;
+}
+
+.logo {
+  width: 10vw;
+  height: 10vh;
+  object-fit: contain;
+}
+
+.links li {
+  list-style-type: none;
+  margin: 0 1rem;
+}
+
+.links li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: cursive;
+  color: #fff;
+}
+
+.links li button {
+  background-color: #e18700;
+  /* border: 2px solid red;
+    outline: 2px solid blue;
+    */
+  border-radius: 4px;
+  border: none;
+  padding: 0.4rem;
+  color: #fff;
+}
+
+.links li:active {
+  background-color: red;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3db83a;
+}
+
+.banner img {
+  width: 20rem;
+  height: fit-content;
+  object-fit: contain;
+}
+
+.banner .loc {
+  background-color: #000;
+  color: #fff;
+  padding: 0.4rem;
+  opacity: 0.5;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.banner .loc:hover {
+  opacity: 1;
+}
+.banner .searchbox {
+  border: none;
+  outline: none !important;
+  background-color: transparent;
+}
+.banner .search {
+  background-color: #fff;
+  padding: 0.6rem 0;
+  border-radius: 3px;
+  margin-top: 2rem;
+}
+.banner .search.fa-search {
+  color: var#3DB83A;
+}
+main aside {
+  background-color: #d3d3d3;
+  box-shadow: 5px 0 1px solid #9999;
+}
+main aside div {
+  font-size: 1rem;
+  font-family: cursive;
+  margin: 1rem 0.4rem;
+}
+main aside div:hover {
+  background-color: #f3f3f3;
+  padding: 0.5rem;
+}
+
+main aside div i {
+  float: right;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+}
+
+main aside {
+  flex: 1;
+}
+
+main .market {
+  flex: 3;
+  margin: 1rem;
+}
+.market {
+    margin: 1 rem;
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+}
+.item p {
+  color: #3db83a;
+  font-weight: 200;
+}
+.item {
+  box-shadow: 0 0 2px #999;
+  border-radius: 5px;
+  margin: 3px;
+}
+.item small {
+  color: var(--greencolor);
+}
+
+.item img {
+  height: 30vh;
+  width: 100%;
+  object-fit: cover;
+}
+.item img:hover{
+   transition-property: all;
+   transition-duration: 5s;
+   transition-timing-function: ease-in-out;
+   transform: scale(1.09);
+
+
+}
+.item .img_design {
+  position: relative;
+}
+
+.item .fa-bookmark {
+  font-weight: 100;
+  color: var(--greencolor);
+  position: absolute;
+  left: 40%;
+  top: 90%;
+
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 2px #999;
+}
+.test{
+  padding:5rem;
+ /* background: linear-gradient(to right ,red ,green ,yellow);*/
+  background-image: url(./images/Jiji_Logo.png);
+  background-repeat: no-repeat;
+  background-size:50%;
+  background-position: 50%;
+}
+/* media query for xs screen*/
+@media(max-width:576px){
+  .banner{
+    flex-direction: column;
+  }
+  main {
+    flex-direction:column;
+  }
+  .item{
+    width:100%
+  }
+  }
+
+@media(max-width:1070px){
+  .banner.loc{
+    display: block;
+  }
+}
+
+
+@media(max-width:1070px){
+  .footimg{
+  margin-bottom: -1rem;
+  margin-left: 10rem;
+}
+}
+@media(max-width:1070px){
+.footer-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3db83a;
+  color: white;
+  flex-direction: column;
+}
+}
+
+.r{
+  color: #2c522b;
+
+}
+.form{
+  margin:auto
+  width:50%;
+}
+.formbody{
+  display:grid;
+  place-items:center;
+  min-height:100vh;
+}
+.input{
+  width: 100%;
+  padding:0.4rem
+
+}
+form div{
+  margin-button: 
+}
+
+form button{
+ width:100%;
+ background-color: #3031ff;
+ color:#fff;
+ padding: 0.3rem 0;
+ margin:auto
+}
+form button:hover{
+  background-color: #3031ff;
+  
+
+}
+.btnclass{
+  background-color: red;
+  min-height: 3rem;
+  text-align: center;
+  margin: 2 rem auto;
+  display: block;
+}
+#anotherclass{
+  
+}
+
+.toggler{
+  display:none
+}

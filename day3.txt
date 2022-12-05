@@ -1,0 +1,122 @@
+//alert("hello world")
+//confirm("are you sure you want to delete?")
+//operations in javascript
+/*
+var person1={
+  fname:"martin",
+  lname:"onwumere",
+  skin:"fair",
+  savings: 20000
+}
+var person2={
+  fname:"prince",
+  lname:"ebuka",
+  skin:"black"
+}
+var numberArray=[0,1,2,3,4,5,6,7,8,9,10]
+var alphabet =["A","B","C","D","E"]
+ var registerUserArray = [
+  {fname:"sola", lname: "onochie", email:"cohigs@gmail.com", password:"1233"},
+  { fname:"martin", lname:"onwumere", email:"sdsd", password:"12ewd"},
+ ]
+   person1.savings=person1.savings+10000
+
+   
+
+ console.log (person1.fname+ ", your account balance is now=" +person1.savings)
+  const mixArray = alphabet.lastIndexOf("A")
+ console.log(mixArray)
+
+ 
+
+
+ var animal= {
+  name:"tiger",
+ sound:"grunt" ,
+ mode :"carnivores"
+}
+ animal.sound ="bark"
+ console.log(animal.sound)
+ // PROCESS
+ //INITIALIZATION
+ //CONDITION
+ //INCREMENT
+ var a=1;
+ console.log(a)
+ console.log(a--)
+ console.log(a)
+ for(var i=0; i <10; i+=2){
+  console.log(1)
+ }
+
+  /** java program */
+  /*
+var myArray=[];
+for (var i=0; i<10;i +=2){
+  myArray.push(i);
+}
+console.log(myArray)
+//setup 
+var myArray=[];
+for(var i=1; i<50; i +=2){
+  myArray.push(i);
+}
+
+ console.log(myArray)
+ */
+/*
+var b=0;
+do{
+  console.log(b)
+  b+=2
+}while(b <= 50)
+*/
+/* 
+var restaurant ="snacks";
+var drink="pepsi";
+if (restaurant=="snacks" && drink=="pepsi"){
+  alert("buying...");
+}
+
+*/
+
+/*
+var result =(80);
+if (result>= 75 ){
+  alert("A");
+}else if(result <75 && result >=60){
+  alert("B")
+}else if (result <60 && result >=50){
+  alert("D")
+}else if (result <50 && result >=45){
+  alert("E")
+}else if (result <45 && result >=30){
+  alert("F")
+}
+strict
+*/
+/*
+var a=parseInt("5")
+var b=5
+if (a===b){
+  alert("true")
+}else{
+  alert("false")
+}
+ var day=20;
+ switch(day){
+  case 1:alert("sunday");
+  case 2:alert("monday")
+  case 3: alert ("tuesday");
+  
+  default :alert("i don't know the day, please don't kill me")
+ }
+ function
+ */
+ var age=18;
+ if (age<18 ){
+  console.log("you cannot Drive");
+ }
+ else {
+  console.log("you can drive");
+ }

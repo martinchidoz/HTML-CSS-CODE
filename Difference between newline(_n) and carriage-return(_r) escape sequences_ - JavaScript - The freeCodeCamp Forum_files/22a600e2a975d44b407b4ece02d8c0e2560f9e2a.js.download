@@ -1,0 +1,9 @@
+"define"in window&&define("discourse/theme-11/pre-initializers/theme-11-translations",["exports"],(function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var t={name:"theme-11-translations",initialize(){const e={en:{hamburger_menu:{theme_selector:"Theme Selector"}}}
+for(let t in e){let n=I18n.translations
+for(let e of[t,"js","theme_translations"])n=n[e]=n[e]||{}
+n[11]=e[t]}}}
+e.default=t}))
+
+//# sourceMappingURL=22a600e2a975d44b407b4ece02d8c0e2560f9e2a.map?__ws=forum.freecodecamp.org
